@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <span class="title">Cinema</span>
+</mat-toolbar>
+<div class="content">
+  <div class="item">
+    <mat-card>
+      <mat-card-title>
+        Film name
+      </mat-card-title>
+      <mat-card-content>
+        <div class="info">
+          <img class="poster" mat-card-lg-image
+               src="http://oliclinic.pl/wp-content/uploads/2016/10/orionthemes-placeholder-image.png"
+               alt="poster">
+          <div class="text">
+            Category | 118 min
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button mat-raised-button color="accent">21:37</button>
+          <button mat-raised-button color="accent">22:00</button>
+          <button mat-raised-button color="accent">23:00</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <app-movie [movieInfo]="movieInfo"></app-movie>
+</div>

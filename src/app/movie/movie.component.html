@@ -1,0 +1,21 @@
+<div class="item">
+  <mat-card>
+    <mat-card-title>
+      {{movieInfo.title}}
+    </mat-card-title>
+    <mat-card-content>
+      <div class="info">
+        <img class="poster" mat-card-lg-image
+             [src]="movieInfo.imgUrl"
+             alt="poster">
+        <div class="text">
+          {{movieInfo.category}} | {{movieInfo.duration}} min
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button *ngFor="let date of movieInfo.showHours" mat-raised-button color="accent">{{date | date:'shortTime'}}</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
