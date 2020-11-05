@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { formatDate } from "@angular/common";
+import { formatDate } from '@angular/common';
 
 export interface MovieInfo {
   title: string;
   imgUrl: string;
   category: string;
   duration: number;
+  description: string;
   showHours: Date[];
 }
 

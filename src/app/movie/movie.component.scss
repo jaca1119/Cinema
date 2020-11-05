@@ -4,15 +4,27 @@
   background: black;
 }
 
+.info {
+  display: flex;
+}
+
 .text {
   vertical-align: top;
-  display: inline-block;
+  text-align: start;
+  //display: inline-block;
+  margin-left: 15px;
+  overflow-wrap: break-word;
 }
 
 .poster {
-  display: inline-block;
+  //display: flex;
 }
 
 button {
   margin-right: 5px;
+  margin-top: 5px;
+}
+
+.description {
+  max-width: 250px;
 }
