@@ -6,21 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
-import { MatButtonModule } from "@angular/material/button";
 import { MovieComponent } from './movie/movie.component';
+import { TicketsViewComponent } from './tickets-view/tickets-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    TicketsViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatButtonModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

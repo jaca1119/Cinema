@@ -1,0 +1,65 @@
+<div class="content">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">{{selectedMovieInfo.title}}</mat-card-title>
+      <mat-card-subtitle>{{selectedDate | date:'shortTime'}}</mat-card-subtitle>
+    </mat-card-header>
+
+  </mat-card>
+
+  <mat-horizontal-stepper linear #stepper labelPosition="bottom">
+    <mat-step [stepControl]="firstFormGroup" label="Choose tickets">
+      <form [formGroup]="firstFormGroup">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Tickets</th>
+          </tr>
+          <tr>
+            <td>Normal</td>
+            <td>20 zł</td>
+            <td>
+              <mat-form-field class="select" appearance="fill">
+                <mat-label>Tickets</mat-label>
+                <mat-select formControlName="normalCtrl">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>15 zł</td>
+            <td>
+              <mat-form-field class="select" appearance="fill">
+                <mat-label>Tickets</mat-label>
+                <mat-select formControlName="studentCtrl">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Choose seats">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

@@ -19,7 +19,8 @@
       </div>
 
       <div class="buttons">
-        <button *ngFor="let date of movieInfo.showHours" mat-raised-button color="accent">{{date | date:'shortTime'}}</button>
+        <button *ngFor="let date of movieInfo.showHours" mat-raised-button color="accent"
+                (click)="goToTickets(date)">{{date | date:'shortTime'}}</button>
       </div>
     </mat-card-content>
   </mat-card>

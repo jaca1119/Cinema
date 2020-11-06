@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 
 export interface MovieInfo {
   title: string;
@@ -17,15 +17,19 @@ export interface MovieInfo {
 })
 export class MovieComponent implements OnInit {
   @Input() movieInfo: MovieInfo;
-  // @Input()
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  format(date: Date): string {
-    return formatDate(date, 'hh:mm', 'en-US');
+  goToTickets(date: Date) {
+    this.router.navigate(['/tickets'], {
+      state: {
+        selectedMovie: this.movieInfo,
+        selectedDate: date
+      }
+    });
   }
-
 }

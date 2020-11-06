@@ -1,0 +1,45 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellow;
+}
+
+.operations {
+  margin-top: 5px;
+  display: flex;
+}
+
+.operations > div {
+  background: aqua;
+  border: 3px solid black;
+}
+
+.select {
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+
+@media screen and (min-width: 320px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    width: 50%;
+  }
+}
+
+
+.tickets {
+  display: flex;
+  justify-content: space-evenly;
+}
