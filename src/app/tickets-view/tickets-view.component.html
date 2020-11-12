@@ -50,11 +50,13 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Choose seats">
       <form [formGroup]="secondFormGroup">
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
+        <div class="seats">
+          <div class="screen"></div>
+          <div class="row" *ngFor="let row of selectedMovieInfo.rows">
+            <div *ngFor="let seat of row.seats" class="seat {{seat.status | lowercase}}"
+                 (click)="selectSeat($event, seat)"></div>
+          </div>
+        </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>

@@ -1,13 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
+export interface Seat {
+  id: number;
+  status: string;
+}
+
+interface Row {
+  id: number;
+  seats: Seat[];
+}
 
 export interface MovieInfo {
   title: string;
-  imgUrl: string;
+  posterUrl: string;
   category: string;
   duration: number;
   description: string;
-  showHours: Date[];
+  screeningTimes: { id: number, screening: Date }[];
+  rows: Row[];
 }
 
 @Component({

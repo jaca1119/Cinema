@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MovieInfo } from '../movie/movie.component';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MovieInfo, Seat} from '../movie/movie.component';
 
 @Component({
   selector: 'app-tickets-view',
@@ -13,6 +13,8 @@ export class TicketsViewComponent implements OnInit {
   selectedDate: Date;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+
+  private selectedSeats = [];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -26,9 +28,19 @@ export class TicketsViewComponent implements OnInit {
       normalCtrl: [''],
       studentCtrl: ['']
     });
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+
+    this.secondFormGroup = this.formBuilder.group({});
   }
 
+  selectSeat($event: any, seat: Seat) {
+    if (seat.status.toLowerCase() === 'free') {
+      if (this.selectedSeats.indexOf(seat.id) === -1) {
+        this.selectedSeats.push(seat.id);
+        $event.target.classList.remove('free');
+        $event.target.classList.add('selected');
+      }
+
+    }
+    console.log(this.selectedSeats);
+  }
 }

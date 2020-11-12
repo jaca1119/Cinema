@@ -24,4 +24,5 @@
   </div>
 
   <app-movie [movieInfo]="movieInfo"></app-movie>
+  <app-movie *ngFor="let movie of movies" [movieInfo]="movie"></app-movie>
 </div>
