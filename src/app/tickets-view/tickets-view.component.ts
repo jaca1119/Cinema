@@ -3,6 +3,12 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MovieInfo, Seat} from '../movie/movie.component';
 
+interface AcceptRequest {
+  title: string;
+  date: Date;
+  selectedSeats: any[];
+}
+
 @Component({
   selector: 'app-tickets-view',
   templateUrl: './tickets-view.component.html',
@@ -14,7 +20,7 @@ export class TicketsViewComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  private selectedSeats = [];
+  selectedSeats = [];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -25,22 +31,59 @@ export class TicketsViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.firstFormGroup = this.formBuilder.group({
-      normalCtrl: [''],
-      studentCtrl: ['']
+      normalCtrl: [0],
+      studentCtrl: [0]
     });
 
     this.secondFormGroup = this.formBuilder.group({});
   }
 
   selectSeat($event: any, seat: Seat) {
-    if (seat.status.toLowerCase() === 'free') {
-      if (this.selectedSeats.indexOf(seat.id) === -1) {
-        this.selectedSeats.push(seat.id);
-        $event.target.classList.remove('free');
-        $event.target.classList.add('selected');
-      }
+    if (this.canSelectSeat(seat)) {
+      seat.status = 'selected';
+      this.selectedSeats.push(seat.id);
+      $event.target.classList.remove('free');
+      $event.target.classList.add('selected');
 
+    } else if (seat.status.toLowerCase() === 'selected') {
+      seat.status = 'free';
+      this.selectedSeats.splice(this.selectedSeats.indexOf(seat.id), 1);
+      $event.target.classList.remove('selected');
+      $event.target.classList.add('free');
     }
     console.log(this.selectedSeats);
+  }
+
+  numberOfTickets(): number {
+    let sum = 0;
+    for (const controlsKey in this.firstFormGroup.controls) {
+      sum += parseInt(this.firstFormGroup.get(controlsKey).value, 10);
+    }
+    return sum;
+  }
+
+  accept() {
+    const acceptRequest: AcceptRequest = {
+      title: this.selectedMovieInfo.title,
+      date: this.selectedDate,
+      selectedSeats: this.selectedSeats
+    };
+    console.log(acceptRequest);
+  }
+
+  private canSelectSeat(seat: Seat) {
+    return seat.status.toLowerCase() === 'free' && this.selectedSeats.length !== this.numberOfTickets();
+  }
+
+  canAccept() {
+    if (this.numberOfTickets() === 0) {
+      return false;
+    }
+
+    return this.selectedSeats.length === this.numberOfTickets();
+  }
+
+  getSelectedRows() {
+    return this.selectedMovieInfo.screeningTimes.find(screeningTime => screeningTime.screening === this.selectedDate).rows;
   }
 }

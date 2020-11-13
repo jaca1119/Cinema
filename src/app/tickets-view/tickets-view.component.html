@@ -10,7 +10,7 @@
   <mat-horizontal-stepper linear #stepper labelPosition="bottom">
     <mat-step [stepControl]="firstFormGroup" label="Choose tickets">
       <form [formGroup]="firstFormGroup">
-        <table>
+        <table class="table">
           <tr>
             <th>Name</th>
             <th>Price</th>
@@ -23,8 +23,9 @@
               <mat-form-field class="select" appearance="fill">
                 <mat-label>Tickets</mat-label>
                 <mat-select formControlName="normalCtrl">
-                  <mat-option value="1">1</mat-option>
-                  <mat-option value="2">2</mat-option>
+                  <mat-option value=0>0</mat-option>
+                  <mat-option value=1>1</mat-option>
+                  <mat-option value=2>2</mat-option>
                 </mat-select>
               </mat-form-field>
             </td>
@@ -36,8 +37,9 @@
               <mat-form-field class="select" appearance="fill">
                 <mat-label>Tickets</mat-label>
                 <mat-select formControlName="studentCtrl">
-                  <mat-option value="1">1</mat-option>
-                  <mat-option value="2">2</mat-option>
+                  <mat-option value=0>0</mat-option>
+                  <mat-option value=1>1</mat-option>
+                  <mat-option value=2>2</mat-option>
                 </mat-select>
               </mat-form-field>
             </td>
@@ -49,17 +51,20 @@
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Choose seats">
+      <div class="tickets-select" *ngIf="numberOfTickets() === 0; else elseBlock">Select tickets</div>
+      <ng-template #elseBlock>Select {{numberOfTickets() - selectedSeats.length}} seats</ng-template>
       <form [formGroup]="secondFormGroup">
         <div class="seats">
+
           <div class="screen"></div>
-          <div class="row" *ngFor="let row of selectedMovieInfo.rows">
+          <div class="row" *ngFor="let row of getSelectedRows()">
             <div *ngFor="let seat of row.seats" class="seat {{seat.status | lowercase}}"
                  (click)="selectSeat($event, seat)"></div>
           </div>
         </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext (click)="accept()" [disabled]="!canAccept()">Accept!</button>
         </div>
       </form>
     </mat-step>

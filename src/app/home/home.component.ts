@@ -9,6 +9,22 @@ import {MovieEndpointService} from '../core/services/movie-endpoint.service';
 })
 export class HomeComponent implements OnInit {
   public asd = 'asd';
+  rows = [
+    {
+      id: 1, seats: [
+        {id: 1, status: 'Free'},
+        {id: 2, status: 'Taken'},
+        {id: 3, status: 'Excluded'}
+      ]
+    },
+    {
+      id: 2, seats: [
+        {id: 4, status: 'Free'},
+        {id: 5, status: 'Free'},
+        {id: 6, status: 'Taken'}
+      ]
+    }
+  ];
   movieInfo: MovieInfo = {
     title: 'Loooooooooooooooong title',
     posterUrl: 'http://oliclinic.pl/wp-content/uploads/2016/10/orionthemes-placeholder-image.png',
@@ -16,26 +32,10 @@ export class HomeComponent implements OnInit {
     duration: 118,
     description: 'Short description about movie',
     screeningTimes: [
-      {id: 0, screening: new Date(0, 0, 0, 21, 37)},
-      {id: 0, screening: new Date(0, 0, 0, 22)},
-      {id: 0, screening: new Date(0, 0, 0, 23)},
-      {id: 0, screening: new Date(0, 0, 0, 24)}],
-    rows: [
-      {
-        id: 0, seats: [
-          {id: 0, status: 'Free'},
-          {id: 0, status: 'Taken'},
-          {id: 0, status: 'Excluded'}
-        ]
-      },
-      {
-        id: 0, seats: [
-          {id: 0, status: 'Free'},
-          {id: 0, status: 'Free'},
-          {id: 0, status: 'Taken'}
-        ]
-      }
-    ]
+      {id: 0, screening: new Date(0, 0, 0, 21, 37), rows: this.rows},
+      {id: 0, screening: new Date(0, 0, 0, 22), rows: this.rows},
+      {id: 0, screening: new Date(0, 0, 0, 23), rows: this.rows},
+      {id: 0, screening: new Date(0, 0, 0, 24), rows: this.rows}],
   };
 
   movies: any[];

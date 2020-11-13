@@ -17,8 +17,7 @@ export interface MovieInfo {
   category: string;
   duration: number;
   description: string;
-  screeningTimes: { id: number, screening: Date }[];
-  rows: Row[];
+  screeningTimes: { id: number, screening: Date, rows: Row[] }[];
 }
 
 @Component({
