@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MovieInfo, Seat} from '../movie/movie.component';
+import {TicketEndpointService} from "../core/services/ticket-endpoint.service";
 
 interface AcceptRequest {
   title: string;
@@ -24,7 +25,8 @@ export class TicketsViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private ticketEndpointService: TicketEndpointService) {
     this.selectedMovieInfo = router.getCurrentNavigation()?.extras?.state?.selectedMovie || {title: 'asd'};
     this.selectedDate = router.getCurrentNavigation()?.extras?.state?.selectedDate || new Date(0, 0, 0, 21, 37);
   }
@@ -63,12 +65,16 @@ export class TicketsViewComponent implements OnInit {
   }
 
   accept() {
-    const acceptRequest: AcceptRequest = {
+    const ticketDTO: AcceptRequest = {
       title: this.selectedMovieInfo.title,
       date: this.selectedDate,
       selectedSeats: this.selectedSeats
     };
-    console.log(acceptRequest);
+    console.log(ticketDTO);
+    this.ticketEndpointService.acceptTicket('ticket', ticketDTO)
+      .then(response => {
+        console.log(response);
+      });
   }
 
   private canSelectSeat(seat: Seat) {
