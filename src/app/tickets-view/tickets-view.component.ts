@@ -2,12 +2,25 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MovieInfo, Seat} from '../movie/movie.component';
-import {TicketEndpointService} from "../core/services/ticket-endpoint.service";
+import {TicketEndpointService} from '../core/services/ticket-endpoint.service';
+import {SelectTicketService} from '../core/services/select-ticket.service';
 
-interface AcceptRequest {
+interface TicketDTO {
   title: string;
   date: Date;
-  selectedSeats: any[];
+  tickets: Ticket[];
+  selectedSeats: number[];
+}
+
+export interface Ticket {
+  type: string;
+  value: number;
+}
+
+export interface SelectedSeat {
+  id: number;
+  row: number;
+  column: number;
 }
 
 @Component({
@@ -21,12 +34,13 @@ export class TicketsViewComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  selectedSeats = [];
+  selectedSeats: SelectedSeat[] = [];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
-              private ticketEndpointService: TicketEndpointService) {
+              private ticketEndpointService: TicketEndpointService,
+              private selectTicketService: SelectTicketService) {
     this.selectedMovieInfo = router.getCurrentNavigation()?.extras?.state?.selectedMovie || {title: 'asd'};
     this.selectedDate = router.getCurrentNavigation()?.extras?.state?.selectedDate || new Date(0, 0, 0, 21, 37);
   }
@@ -40,16 +54,16 @@ export class TicketsViewComponent implements OnInit {
     this.secondFormGroup = this.formBuilder.group({});
   }
 
-  selectSeat($event: any, seat: Seat) {
+  selectSeat($event: any, seat: Seat, row: number, column: number) {
     if (this.canSelectSeat(seat)) {
       seat.status = 'selected';
-      this.selectedSeats.push(seat.id);
+      this.selectedSeats.push({id: seat.id, row, column});
       $event.target.classList.remove('free');
       $event.target.classList.add('selected');
 
     } else if (seat.status.toLowerCase() === 'selected') {
       seat.status = 'free';
-      this.selectedSeats.splice(this.selectedSeats.indexOf(seat.id), 1);
+      this.selectedSeats.splice(this.selectedSeats.indexOf({id: seat.id, row, column}), 1);
       $event.target.classList.remove('selected');
       $event.target.classList.add('free');
     }
@@ -65,15 +79,29 @@ export class TicketsViewComponent implements OnInit {
   }
 
   accept() {
-    const ticketDTO: AcceptRequest = {
+    const tickets: Ticket[] = [
+      {type: 'normal', value: this.firstFormGroup.get('normalCtrl').value},
+      {type: 'student', value: this.firstFormGroup.get('studentCtrl').value}
+    ];
+
+    const ticketDTO: TicketDTO = {
       title: this.selectedMovieInfo.title,
       date: this.selectedDate,
-      selectedSeats: this.selectedSeats
+      selectedSeats: this.selectedSeats.map(x => x.id),
+      tickets
     };
+
     console.log(ticketDTO);
+
     this.ticketEndpointService.acceptTicket('ticket', ticketDTO)
-      .then(response => {
-        console.log(response);
+      .then((ticketStatus: boolean) => {
+        this.selectTicketService.setMovie(this.selectedMovieInfo);
+        this.selectTicketService.setDate(this.selectedDate);
+        this.selectTicketService.setTickets(tickets);
+        this.selectTicketService.setSeats(this.selectedSeats);
+        this.selectTicketService.setTicketStatus(ticketStatus);
+
+        this.router.navigate(['accepted']);
       });
   }
 

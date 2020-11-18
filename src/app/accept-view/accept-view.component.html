@@ -1,0 +1,40 @@
+<div class="content">
+
+  <div *ngIf="ticketStatus; else elseBlock">
+    <mat-card>
+      <h1 class="thanks">Thank you for choosing our cinema!</h1>
+      <mat-card-header>
+        <mat-card-title>
+          Selected movie: {{movie.title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Date: {{date | date:'fullDate'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <h2>Tickets</h2>
+        <div *ngFor="let ticket of tickets">
+          <div class="ticket" *ngIf="ticket.value != 0">
+            <div>Ticket type: {{ticket.type}}</div>
+            <div>No. of tickets: {{ticket.value}}</div>
+          </div>
+        </div>
+        <h2>Seats</h2>
+        <div class="seat" *ngFor="let seat of seats">
+          <div>Row: {{seat.row + 1}}, Column: {{seat.column + 1}}</div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <ng-template #elseBlock>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Sorry something went wrong with accepting tickets
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </ng-template>
+</div>

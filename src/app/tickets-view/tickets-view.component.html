@@ -57,9 +57,9 @@
         <div class="seats">
 
           <div class="screen"></div>
-          <div class="row" *ngFor="let row of getSelectedRows()">
-            <div *ngFor="let seat of row.seats" class="seat {{seat.status | lowercase}}"
-                 (click)="selectSeat($event, seat)"></div>
+          <div class="row" *ngFor="let row of getSelectedRows(); let rowIndex = index">
+            <div *ngFor="let seat of row.seats; let columnIndex = index" class="seat {{seat.status | lowercase}}"
+                 (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
           </div>
         </div>
         <div>

@@ -1,0 +1,36 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellow;
+}
+
+.ticket {
+  border: 5px outset orange;
+  margin-bottom: 5px;
+}
+
+.seat {
+  border: 2px dotted black;
+  margin-bottom: 2px;
+}
+
+@media screen and (min-width: 320px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    width: 50%;
+  }
+}
+
+.thanks {
+  border-radius: 10px;
+  border-bottom: 3px solid black;
+}
