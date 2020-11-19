@@ -18,8 +18,11 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button *ngFor="let date of movieInfo.screeningTimes" mat-raised-button color="accent"
-            (click)="goToTickets(date.screening)">{{date.screening | date:'shortTime'}}</button>
+    <ng-container *ngFor="let date of movieInfo.screeningTimes">
+      <button *ngIf="isOnSelectedDate(date)" mat-raised-button color="accent" (click)="goToTickets(date.screening)">
+        {{date.screening | date:'shortTime'}}
+      </button>
+    </ng-container>
   </mat-card-actions>
 </mat-card>
 

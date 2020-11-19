@@ -43,6 +43,9 @@ td {
   flex-direction: column;
   align-items: center;
   border: 1px solid slategray;
+  overflow-y: auto;
+  overflow-x: auto;
+  flex-wrap: wrap;
 }
 
 .seat {
@@ -67,7 +70,6 @@ td {
 }
 
 .excluded {
-  //background: white;
   visibility: hidden;
 }
 
@@ -83,7 +85,7 @@ td {
 
 .screen {
   height: 5px;
-  width: 70%;
+  width: 50vh;
   margin-bottom: 60px;
   margin-top: 10px;
   background-color: black;
@@ -94,4 +96,3 @@ td {
     width: 100%;
   }
 }
-

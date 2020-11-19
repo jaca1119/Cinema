@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieInfo} from '../movie/movie.component';
+import {MovieInfo, ScreeningTime} from '../movie/movie.component';
 import {MovieEndpointService} from '../core/services/movie-endpoint.service';
 
 @Component({
@@ -8,7 +8,14 @@ import {MovieEndpointService} from '../core/services/movie-endpoint.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public asd = 'asd';
+  selectedDay = new Date();
+
+  days: Date[] = [
+    new Date(Date.now()),
+    new Date(Date.now() + (1000 * 60 * 60 * 24)),
+    new Date(Date.now() + (1000 * 60 * 60 * 24 * 2)),
+  ];
+
   rows = [
     {
       id: 1, seats: [
@@ -32,22 +39,41 @@ export class HomeComponent implements OnInit {
     duration: 118,
     description: 'Short description about movie',
     screeningTimes: [
-      {id: 0, screening: new Date(0, 0, 0, 21, 37), rows: this.rows},
-      {id: 0, screening: new Date(0, 0, 0, 22), rows: this.rows},
-      {id: 0, screening: new Date(0, 0, 0, 23), rows: this.rows},
-      {id: 0, screening: new Date(0, 0, 0, 24), rows: this.rows}],
+      {id: 0, screening: new Date(Date.now()).toDateString(), rows: this.rows},
+      {id: 0, screening: new Date(Date.now() + 1000 * 60 * 60 * 2).toDateString(), rows: this.rows},
+      {id: 0, screening: new Date(Date.now() + 1000 * 60 * 135).toDateString(), rows: this.rows},
+      {id: 0, screening: new Date(Date.now() + 1000 * 60 * 76).toDateString(), rows: this.rows},
+      {id: 0, screening: new Date(Date.now() + 1000 * 60 * 60 * 24).toDateString(), rows: this.rows}],
   };
 
-  movies: any[];
+  moviesToShow: MovieInfo[];
+  private movies: MovieInfo[];
 
   constructor(private movieEndpointService: MovieEndpointService) {
   }
 
   ngOnInit() {
     this.movieEndpointService.getAll('movies')
-      .then((movies: any[]) => {
+      .then((movies: MovieInfo[]) => {
+        this.movies = movies;
+        this.moviesToShow = movies;
+
+        this.moviesToShow = movies.filter(movie => movie.screeningTimes.some(screeningTime => this.screeningInSelectedDay(screeningTime)));
+
         return this.movies = movies;
       });
   }
 
+  selectDay(day: Date) {
+    this.selectedDay = day;
+
+    this.moviesToShow = this.movies.filter(movie => movie.screeningTimes.some(screeningTime => this.screeningInSelectedDay(screeningTime)));
+  }
+
+  private screeningInSelectedDay(screeningTime: ScreeningTime): boolean {
+    const screening = new Date(screeningTime.screening);
+    return screening.getFullYear() === this.selectedDay.getFullYear() &&
+      screening.getMonth() === this.selectedDay.getMonth() &&
+      screening.getDate() === this.selectedDay.getDate();
+  }
 }

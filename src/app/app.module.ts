@@ -9,7 +9,7 @@ import {MaterialModule} from './material.module';
 import {MovieComponent} from './movie/movie.component';
 import {TicketsViewComponent} from './tickets-view/tickets-view.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import {AcceptViewComponent} from './accept-view/accept-view.component';
 
 @NgModule({

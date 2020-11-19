@@ -6,6 +6,12 @@ export interface Seat {
   status: string;
 }
 
+export interface ScreeningTime {
+  id: number;
+  screening: string;
+  rows: Row[];
+}
+
 interface Row {
   id: number;
   seats: Seat[];
@@ -17,7 +23,7 @@ export interface MovieInfo {
   category: string;
   duration: number;
   description: string;
-  screeningTimes: { id: number, screening: Date, rows: Row[] }[];
+  screeningTimes: ScreeningTime[];
 }
 
 @Component({
@@ -27,6 +33,7 @@ export interface MovieInfo {
 })
 export class MovieComponent implements OnInit {
   @Input() movieInfo: MovieInfo;
+  @Input() selectedDate: Date;
 
   constructor(private router: Router) {
   }
@@ -34,12 +41,20 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToTickets(date: Date) {
+  goToTickets(date: string) {
     this.router.navigate(['/tickets'], {
       state: {
         selectedMovie: this.movieInfo,
         selectedDate: date
       }
     });
+  }
+
+  isOnSelectedDate(date: ScreeningTime) {
+    const screening = new Date(date.screening);
+
+    return screening.getFullYear() === this.selectedDate.getFullYear() &&
+      screening.getMonth() === this.selectedDate.getMonth() &&
+      screening.getDate() === this.selectedDate.getDate();
   }
 }

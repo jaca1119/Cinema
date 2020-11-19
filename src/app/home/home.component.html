@@ -1,3 +1,10 @@
 <div class="content">
-  <app-movie *ngFor="let movie of movies" [movieInfo]="movie"></app-movie>
+  <div class="days">
+    <button mat-flat-button color="primary" *ngFor="let day of days" (click)="selectDay(day)">
+      {{day | date:'EEEE'}}
+    </button>
+  </div>
+
+  <app-movie [movieInfo]="movieInfo" [selectedDate]="selectedDay"></app-movie>
+  <app-movie *ngFor="let movie of moviesToShow" [movieInfo]="movie" [selectedDate]="selectedDay"></app-movie>
 </div>

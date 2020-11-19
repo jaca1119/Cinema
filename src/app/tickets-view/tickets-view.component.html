@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title class="title">{{selectedMovieInfo.title}}</mat-card-title>
-      <mat-card-subtitle>{{selectedDate | date:'shortTime'}}</mat-card-subtitle>
+      <mat-card-subtitle>{{selectedDate | date:'EEEE, MMMM d, y, h:mm a'}}</mat-card-subtitle>
     </mat-card-header>
 
   </mat-card>
@@ -55,7 +55,6 @@
       <ng-template #elseBlock>Select {{numberOfTickets() - selectedSeats.length}} seats</ng-template>
       <form [formGroup]="secondFormGroup">
         <div class="seats">
-
           <div class="screen"></div>
           <div class="row" *ngFor="let row of getSelectedRows(); let rowIndex = index">
             <div *ngFor="let seat of row.seats; let columnIndex = index" class="seat {{seat.status | lowercase}}"

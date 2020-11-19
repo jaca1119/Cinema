@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MovieInfo, Seat} from '../movie/movie.component';
+import {MovieInfo, ScreeningTime, Seat} from '../movie/movie.component';
 import {TicketEndpointService} from '../core/services/ticket-endpoint.service';
 import {SelectTicketService} from '../core/services/select-ticket.service';
 
@@ -42,7 +42,7 @@ export class TicketsViewComponent implements OnInit {
               private ticketEndpointService: TicketEndpointService,
               private selectTicketService: SelectTicketService) {
     this.selectedMovieInfo = router.getCurrentNavigation()?.extras?.state?.selectedMovie || {title: 'asd'};
-    this.selectedDate = router.getCurrentNavigation()?.extras?.state?.selectedDate || new Date(0, 0, 0, 21, 37);
+    this.selectedDate = new Date(router.getCurrentNavigation()?.extras?.state?.selectedDate) || new Date(0, 0, 0, 21, 37);
   }
 
   ngOnInit(): void {
@@ -67,7 +67,6 @@ export class TicketsViewComponent implements OnInit {
       $event.target.classList.remove('selected');
       $event.target.classList.add('free');
     }
-    console.log(this.selectedSeats);
   }
 
   numberOfTickets(): number {
@@ -118,6 +117,14 @@ export class TicketsViewComponent implements OnInit {
   }
 
   getSelectedRows() {
-    return this.selectedMovieInfo.screeningTimes.find(screeningTime => screeningTime.screening === this.selectedDate).rows;
+    return this.selectedMovieInfo.screeningTimes.find(screeningTime => this.isOnSelectedDate(screeningTime)).rows;
+  }
+
+  isOnSelectedDate(date: ScreeningTime) {
+    const screening = new Date(date.screening);
+
+    return screening.getFullYear() === this.selectedDate.getFullYear() &&
+      screening.getMonth() === this.selectedDate.getMonth() &&
+      screening.getDate() === this.selectedDate.getDate();
   }
 }
