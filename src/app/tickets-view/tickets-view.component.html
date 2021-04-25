@@ -56,8 +56,9 @@
       <form [formGroup]="secondFormGroup">
         <div class="seats">
           <div class="screen"></div>
-          <div class="row" *ngFor="let row of getSelectedRows(); let rowIndex = index">
-            <div *ngFor="let seat of row.seats; let columnIndex = index" class="seat {{seat.status | lowercase}}"
+          <div class="row" *ngFor="let row of getSortedRows(getSelectedRows()); let rowIndex = index">
+            <div *ngFor="let seat of getSortedSeats(row.seats); let columnIndex = index"
+                 class="seat {{seat.status | lowercase}}"
                  (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
           </div>
         </div>

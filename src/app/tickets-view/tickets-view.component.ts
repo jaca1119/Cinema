@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MovieInfo, ScreeningTime, Seat} from '../movie/movie.component';
+import {MovieInfo, Row, ScreeningTime, Seat} from '../movie/movie.component';
 import {TicketEndpointService} from '../core/services/ticket-endpoint.service';
 import {SelectTicketService} from '../core/services/select-ticket.service';
 
@@ -52,6 +52,8 @@ export class TicketsViewComponent implements OnInit {
     });
 
     this.secondFormGroup = this.formBuilder.group({});
+    console.log(this.selectedMovieInfo);
+
   }
 
   selectSeat($event: any, seat: Seat, row: number, column: number) {
@@ -71,6 +73,7 @@ export class TicketsViewComponent implements OnInit {
 
   numberOfTickets(): number {
     let sum = 0;
+
     for (const controlsKey in this.firstFormGroup.controls) {
       sum += parseInt(this.firstFormGroup.get(controlsKey).value, 10);
     }
@@ -123,8 +126,18 @@ export class TicketsViewComponent implements OnInit {
   isOnSelectedDate(date: ScreeningTime) {
     const screening = new Date(date.screening);
 
+    return screening.getTime() === this.selectedDate.getTime();
+
     return screening.getFullYear() === this.selectedDate.getFullYear() &&
       screening.getMonth() === this.selectedDate.getMonth() &&
       screening.getDate() === this.selectedDate.getDate();
+  }
+
+  getSortedRows(rows: Row[]): Row[] {
+    return rows.sort((a, b) => a.rowIndex - b.rowIndex);
+  }
+
+  getSortedSeats(seats: Seat[]): Seat[] {
+    return seats.sort((a, b) => a.columnIndex - b.columnIndex);
   }
 }

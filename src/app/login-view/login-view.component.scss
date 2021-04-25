@@ -1,0 +1,29 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellow;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+@media screen and (min-width: 320px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    width: 50%;
+  }
+}

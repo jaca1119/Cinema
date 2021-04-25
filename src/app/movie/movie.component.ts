@@ -1,19 +1,23 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Hall} from '../admin-panel/hall-config-view/hall-config-view.component';
 
 export interface Seat {
   id: number;
+  columnIndex: number;
   status: string;
 }
 
 export interface ScreeningTime {
   id: number;
   screening: string;
+  hall: Hall;
   rows: Row[];
 }
 
-interface Row {
+export interface Row {
   id: number;
+  rowIndex: number;
   seats: Seat[];
 }
 

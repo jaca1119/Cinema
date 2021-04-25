@@ -1,0 +1,56 @@
+<div class="content">
+  <div>
+    <div>
+      <button mat-raised-button color="primary" (click)="showAddHall()">Add hall</button>
+    </div>
+    <mat-card>
+      <h4>Select hall</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Hall</mat-label>
+        <mat-select (selectionChange)="onChange($event.value)">
+          <mat-option *ngFor="let hall of halls" [value]="hall.hallName">{{hall.hallName}}</mat-option>
+          <mat-option [value]="0">Hall 1</mat-option>
+          <mat-option [value]="1">Hall 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  </div>
+
+  <div *ngIf="showSelected; else elseBlock">
+    <div>
+      <div class="seats">
+        <div class="screen"></div>
+        <div class="row" *ngFor="let row of getSortedRows(selectedHall.rows); let rowIndex = index">
+          <div *ngFor="let seat of getSortedSeats(row.seats); let columnIndex = index"
+               class="seat {{seat.status | lowercase}}" (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
+        </div>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Hall name:</mat-label>
+          <input matInput [type]="'text'" [value]="selectedHall.hallName" #hallName>
+        </mat-form-field>
+        <button mat-raised-button (click)="updateHall(hallName.value)">Update</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      <div class="seats">
+        <div class="screen"></div>
+        <div class="row" *ngFor="let row of getSortedRows(createHall.rows); let rowIndex = index">
+          <div *ngFor="let seat of getSortedSeats(row.seats); let columnIndex = index"
+               class="seat {{seat.status | lowercase}}" (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
+        </div>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Hall name:</mat-label>
+          <input matInput [type]="'text'" #hallName>
+        </mat-form-field>
+        <button mat-raised-button (click)="addHall(hallName.value)">Add</button>
+      </div>
+    </div>
+
+  </ng-template>
+</div>
