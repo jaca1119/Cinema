@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AuthenticationService} from '../core/services/authentication.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
   selector: 'app-login-view',
@@ -35,11 +35,12 @@ export class LoginViewComponent implements OnInit {
       return;
     }
 
-    const isLoggedIn = this.authService.authenticate(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
-
-    if (isLoggedIn) {
-      this.router.navigate([this.returnUrl]);
-    }
+    this.authService.authenticate(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+      .subscribe(() => {
+        if (this.authService.isLoggedIn()) {
+          this.router.navigate([this.returnUrl]);
+        }
+      });
   }
 
 }
