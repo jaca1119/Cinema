@@ -22,7 +22,9 @@
         <div class="screen"></div>
         <div class="row" *ngFor="let row of getSortedRows(selectedHall.rows); let rowIndex = index">
           <div *ngFor="let seat of getSortedSeats(row.seats); let columnIndex = index"
-               class="seat {{seat.status | lowercase}}" (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
+               class="seat {{seat.status | lowercase}}" (mouseover)="selectSeat($event, seat, rowIndex, columnIndex)"
+               (click)="selectSeatClick($event, seat, rowIndex, columnIndex)">
+          </div>
         </div>
       </div>
       <div>
@@ -40,7 +42,9 @@
         <div class="screen"></div>
         <div class="row" *ngFor="let row of getSortedRows(createHall.rows); let rowIndex = index">
           <div *ngFor="let seat of getSortedSeats(row.seats); let columnIndex = index"
-               class="seat {{seat.status | lowercase}}" (click)="selectSeat($event, seat, rowIndex, columnIndex)"></div>
+               class="seat {{seat.status | lowercase}}" (mouseover)="selectSeat($event, seat, rowIndex, columnIndex)"
+               (click)="selectSeatClick($event, seat, rowIndex, columnIndex)">
+          </div>
         </div>
       </div>
       <div>

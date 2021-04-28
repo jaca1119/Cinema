@@ -1,16 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {of} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  token: string = '';
-
   private URL = environment.API + '/api/';
+
   constructor(private http: HttpClient) {
   }
 
@@ -26,7 +25,7 @@ export class AuthenticationService {
       tap(response => {
         if (response.status === 200) {
           sessionStorage.setItem('isLoggedIn', 'true');
-          this.token = JSON.parse(response.body).token
+          sessionStorage.setItem('token', JSON.parse(response.body).token);
         }
       }),
       catchError(() => {
@@ -42,10 +41,10 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.setItem('isLoggedIn', 'false');
-    this.token = '';
+    sessionStorage.setItem('token', '');
   }
 
-  getToken() {
-    return this.token;
+  getToken(): string {
+    return sessionStorage.getItem('token');
   }
 }

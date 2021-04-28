@@ -16,7 +16,6 @@ export interface ScreeningTime {
 }
 
 export interface Row {
-  id: number;
   rowIndex: number;
   seats: Seat[];
 }

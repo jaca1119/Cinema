@@ -19,14 +19,14 @@ export class HomeComponent implements OnInit {
 
   rows: Row[] = [
     {
-      id: 1, rowIndex: 1, seats: [
+      rowIndex: 1, seats: [
         {id: 1, columnIndex: 1, status: 'Free'},
         {id: 2, columnIndex: 2, status: 'Taken'},
         {id: 3, columnIndex: 3, status: 'Excluded'}
       ]
     },
     {
-      id: 2, rowIndex: 1, seats: [
+      rowIndex: 1, seats: [
         {id: 4, columnIndex: 1, status: 'Free'},
         {id: 5, columnIndex: 2, status: 'Free'},
         {id: 6, columnIndex: 3, status: 'Taken'}

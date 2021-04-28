@@ -127,10 +127,6 @@ export class TicketsViewComponent implements OnInit {
     const screening = new Date(date.screening);
 
     return screening.getTime() === this.selectedDate.getTime();
-
-    return screening.getFullYear() === this.selectedDate.getFullYear() &&
-      screening.getMonth() === this.selectedDate.getMonth() &&
-      screening.getDate() === this.selectedDate.getDate();
   }
 
   getSortedRows(rows: Row[]): Row[] {

@@ -8,8 +8,14 @@
   background: yellow;
 }
 
-.button {
-  margin: 5px;
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+  min-width: 200px;
 }
 
 @media screen and (min-width: 320px) {

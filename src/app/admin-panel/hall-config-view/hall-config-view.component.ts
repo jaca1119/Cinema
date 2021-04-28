@@ -33,12 +33,11 @@ export class HallConfigViewComponent implements OnInit {
         seats.push({
           id: 0,
           columnIndex: j,
-          status: 'free'
+          status: 'Free'
         });
       }
 
       rows.push({
-        id: 0,
         rowIndex: i,
         seats
       });
@@ -57,25 +56,33 @@ export class HallConfigViewComponent implements OnInit {
   }
 
   selectSeat($event: any, seat: Seat, row: number, column: number) {
-    if (seat.status === 'free') {
-      seat.status = 'excluded';
+    if ($event.buttons === 1) {
+      this.doSelectSeat($event, seat, row, column);
+    }
+  }
+
+  selectSeatClick($event: any, seat: Seat, row: number, column: number) {
+    this.doSelectSeat($event, seat, row, column);
+  }
+
+  doSelectSeat($event: any, seat: Seat, row: number, column: number) {
+    console.log(seat);
+    if (seat.status === 'Free') {
+      seat.status = 'Excluded';
       $event.target.classList.remove('free');
       $event.target.classList.add('excluded');
     } else {
-      seat.status = 'free';
+      seat.status = 'Free';
       $event.target.classList.remove('excluded');
       $event.target.classList.add('free');
     }
   }
 
   addHall(hallName: string) {
-    console.log(this.createHall);
-
     this.createHall.hallName = hallName;
 
     this.movieEndpointService.createHall('halls', this.createHall)
       .then((hall: any) => {
-        console.log(hall);
         this.ngOnInit();
       });
   }
@@ -85,7 +92,6 @@ export class HallConfigViewComponent implements OnInit {
 
     this.movieEndpointService.updateHall('halls', this.selectedHall)
       .then((hall: any) => {
-        console.log(hall);
         this.ngOnInit();
       });
   }
@@ -95,11 +101,8 @@ export class HallConfigViewComponent implements OnInit {
   }
 
   onChange(hall: any) {
-
     this.showSelected = true;
     this.selectedHall = this.halls.find(x => x.hallName === hall);
-    console.log(this.selectedHall);
-
   }
 
   getSortedRows(rows: Row[]): Row[] {
