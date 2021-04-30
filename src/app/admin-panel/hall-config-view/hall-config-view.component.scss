@@ -13,6 +13,11 @@
   flex-direction: column;
 }
 
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .seats {
   display: flex;
   flex-direction: column;
@@ -46,7 +51,6 @@
 }
 
 .excluded {
-  // visibility: hidden;
   background: gray;
   cursor: pointer;
   opacity: 0.5;
@@ -55,7 +59,6 @@
 .selected {
   background: gold;
 }
-
 
 .tickets {
   display: flex;
@@ -68,6 +71,10 @@
   margin-bottom: 60px;
   margin-top: 10px;
   background-color: black;
+}
+
+.add-hall > * {
+  margin: 10px;
 }
 
 @media screen and (min-width: 320px) {

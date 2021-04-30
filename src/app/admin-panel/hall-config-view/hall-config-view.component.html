@@ -1,10 +1,9 @@
 <div class="content">
-  <div>
+  <mat-card class="menu">
     <div>
       <button mat-raised-button color="primary" (click)="showAddHall()">Add hall</button>
     </div>
-    <mat-card>
-      <h4>Select hall</h4>
+    <div><h4>or Select hall:</h4>
       <mat-form-field appearance="fill">
         <mat-label>Hall</mat-label>
         <mat-select (selectionChange)="onChange($event.value)">
@@ -13,8 +12,8 @@
           <mat-option [value]="1">Hall 2</mat-option>
         </mat-select>
       </mat-form-field>
-    </mat-card>
-  </div>
+    </div>
+  </mat-card>
 
   <div *ngIf="showSelected; else elseBlock">
     <div>
@@ -47,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="add-hall">
         <mat-form-field appearance="fill">
           <mat-label>Hall name:</mat-label>
           <input matInput [type]="'text'" #hallName>

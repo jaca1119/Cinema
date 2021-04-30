@@ -1,7 +1,7 @@
 <div class="content">
-  <p>
+  <h2>
     Add movie
-  </p>
+  </h2>
   <mat-card>
     <form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()" class="add">
       <mat-form-field appearance="fill">
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <button mat-raised-button color="primary" type="button" (click)="openAddScreening()">
+      <button class="open-screening" mat-raised-button color="primary" type="button" (click)="openAddScreening()">
         Add screening +
       </button>
 

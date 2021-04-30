@@ -13,6 +13,16 @@
   flex-direction: column;
 }
 
+.open-screening {
+  margin: 10px 10px 20px;
+  max-width: 200px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
 @media screen and (min-width: 320px) {
   .content {
     width: 100%;
