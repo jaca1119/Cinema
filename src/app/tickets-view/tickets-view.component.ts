@@ -33,6 +33,7 @@ export class TicketsViewComponent implements OnInit {
   selectedDate: Date;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
   selectedSeats: SelectedSeat[] = [];
 

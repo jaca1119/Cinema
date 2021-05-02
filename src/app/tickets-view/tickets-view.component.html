@@ -64,9 +64,19 @@
         </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext (click)="accept()" [disabled]="!canAccept()">Accept!</button>
+          <button mat-button matStepper (click)="accept()" [disabled]="!canAccept()">Accept!</button>
+          <button mat-button matStepperNext [disabled]="!canAccept()">Next</button>
         </div>
       </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup" label="Add snacks" optional>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepper (click)="accept()" [disabled]="!canAccept()">Accept!</button>
+      </div>
+
     </mat-step>
   </mat-horizontal-stepper>
 </div>
