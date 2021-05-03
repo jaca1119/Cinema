@@ -18,6 +18,10 @@ import { AdminMenuComponent } from './admin-panel/admin-menu/admin-menu.componen
 import { HallConfigViewComponent } from './admin-panel/hall-config-view/hall-config-view.component';
 import { TokenInterceptor } from './core/services/token.interceptor';
 import { SnackComponent } from './snack/snack.component';
+import { MovieConfigComponent } from './admin-panel/movie-config/movie-config.component';
+import { MovieListConfigComponent } from './admin-panel/movie-config/movie-list-config/movie-list-config.component';
+import { MovieConfigViewComponent } from './admin-panel/movie-config/movie-list-config/movie-config-view/movie-config-view.component';
+import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { SnackComponent } from './snack/snack.component';
     AdminMenuComponent,
     AddMovieComponent,
     HallConfigViewComponent,
-    SnackComponent
+    SnackComponent,
+    MovieConfigComponent,
+    MovieListConfigComponent,
+    MovieConfigViewComponent,
+    UpdateMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,7 @@ import { SnackComponent } from './snack/snack.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {

@@ -1,0 +1,46 @@
+.item {
+  margin-bottom: 10px;
+  max-width: 200px;
+  min-height: 300px;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 500ms ease;
+}
+
+.item:hover {
+  opacity: 90%;
+}
+
+.info {
+  display: flex;
+}
+
+.text {
+  vertical-align: top;
+  text-align: start;
+  //display: inline-block;
+  margin-left: 15px;
+  overflow-wrap: break-word;
+}
+
+.poster {
+  //display: flex;
+  width: 130px;
+  height: 185px;
+}
+
+button {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.description {
+  max-width: 250px;
+}

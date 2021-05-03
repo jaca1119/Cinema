@@ -1,0 +1,5 @@
+<p>movie-list-config works!</p>
+<div class="items">
+  <app-movie-config-view *ngFor="let movie of movies" [movie]="movie" matRipple
+                         (click)="updateMovie(movie)"></app-movie-config-view>
+</div>

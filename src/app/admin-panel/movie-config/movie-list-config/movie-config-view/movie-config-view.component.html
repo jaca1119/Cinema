@@ -1,0 +1,27 @@
+<mat-card class="item">
+  <mat-card-title>
+    {{movie.title}}
+  </mat-card-title>
+  <mat-card-content>
+    <div class="info">
+      <img class="poster"
+           [src]="movie.posterUrl || 'http://oliclinic.pl/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'"
+           alt="poster">
+      <div class="text">
+        {{movie.category}} | {{movie.duration}} min
+        <hr>
+        <div class="description">
+          {{movie.description}}
+        </div>
+      </div>
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <ng-container *ngFor="let date of movie.screeningTimes">
+      <button mat-flat-button>
+        {{date.screening | date:'shortTime'}}
+      </button>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>
