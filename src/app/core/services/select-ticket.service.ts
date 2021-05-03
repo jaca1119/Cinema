@@ -1,6 +1,7 @@
-import {Injectable} from '@angular/core';
-import {MovieInfo} from '../../movie/movie.component';
-import {SelectedSeat, Ticket} from '../../tickets-view/tickets-view.component';
+import { Injectable } from '@angular/core';
+import { MovieInfo } from '../../movie/movie.component';
+import { SelectedSeat, Ticket } from '../../tickets-view/tickets-view.component';
+import { AddSnack } from '../../snack/snack.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class SelectTicketService {
   private tickets: Ticket[];
   private seats: SelectedSeat[];
   private ticketStatus: boolean;
+  private addedSnacks: AddSnack[];
+  private hallName: string;
 
   constructor() {
   }
@@ -43,15 +46,32 @@ export class SelectTicketService {
     return this.seats;
   }
 
+  getSnacks() {
+    return this.addedSnacks;
+  }
+
   setSeats(selectedSeats: SelectedSeat[]) {
     this.seats = selectedSeats;
   }
 
   getTicketStatus() {
+    return true;
     return this.ticketStatus;
+  }
+
+  getHallName() {
+    return this.hallName;
   }
 
   setTicketStatus(ticketStatus: boolean) {
     this.ticketStatus = ticketStatus;
+  }
+
+  setSnacks(addedSnacks: AddSnack[]) {
+    this.addedSnacks = addedSnacks;
+  }
+
+  setHallName(hallName: string) {
+    this.hallName = hallName;
   }
 }

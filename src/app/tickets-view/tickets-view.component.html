@@ -50,6 +50,7 @@
         </div>
       </form>
     </mat-step>
+
     <mat-step [stepControl]="secondFormGroup" label="Choose seats">
       <div class="tickets-select" *ngIf="numberOfTickets() === 0; else elseBlock">Select tickets</div>
       <ng-template #elseBlock>Select {{numberOfTickets() - selectedSeats.length}} seats</ng-template>
@@ -65,18 +66,32 @@
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepper (click)="accept()" [disabled]="!canAccept()">Accept!</button>
-          <button mat-button matStepperNext [disabled]="!canAccept()">Next</button>
+          <button mat-button matStepperNext [disabled]="!canAccept()">Add snacks</button>
         </div>
       </form>
     </mat-step>
 
     <mat-step [stepControl]="thirdFormGroup" label="Add snacks" optional>
+      <form [formGroup]="thirdFormGroup">
+        <div>
+          Selected snacks:
+          <div *ngFor="let snack of addedSnacks; let i = index">
+            {{snack.name | titlecase}}, size: {{snack.size}}, quantity: {{snack.quantity}}
+            <button mat-button color="accent" (click)="removeSnack(i)">Remove</button>
+          </div>
+        </div>
+        <div class="snack-list">
+          <app-snack *ngFor="let snack of snacks" [snack]="snack" (snackAdded)="onSnackAdded($event)"></app-snack>
+          <!--          <app-snack (snackAdded)="onSnackAdded($event)"></app-snack>-->
+          <!--          <app-snack (snackAdded)="onSnackAdded($event)"></app-snack>-->
+        </div>
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepper (click)="accept()" [disabled]="!canAccept()">Accept!</button>
-      </div>
-
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepper (click)="accept()" [disabled]="!canAccept()">Accept!</button>
+        </div>
+      </form>
     </mat-step>
+
   </mat-horizontal-stepper>
 </div>

@@ -13,6 +13,10 @@
       </mat-card-header>
 
       <mat-card-content>
+        <h2>Hall</h2>
+        <div>
+          Hall name: {{hallName}}
+        </div>
         <h2>Tickets</h2>
         <div *ngFor="let ticket of tickets">
           <div class="ticket" *ngIf="ticket.value != 0">
@@ -23,6 +27,11 @@
         <h2>Seats</h2>
         <div class="seat" *ngFor="let seat of seats">
           <div>Row: {{seat.row + 1}}, Column: {{seat.column + 1}}</div>
+        </div>
+
+        <h2>Snacks</h2>
+        <div *ngFor="let snack of snacks">
+          {{snack.name | titlecase}}, size: {{snack.size}}, quantity: {{snack.quantity}}
         </div>
 
       </mat-card-content>

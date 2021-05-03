@@ -9,7 +9,7 @@ import { MaterialModule } from './material.module';
 import { MovieComponent } from './movie/movie.component';
 import { TicketsViewComponent } from './tickets-view/tickets-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AcceptViewComponent } from './accept-view/accept-view.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -17,6 +17,7 @@ import { AddMovieComponent } from './admin-panel/add-movie/add-movie.component';
 import { AdminMenuComponent } from './admin-panel/admin-menu/admin-menu.component';
 import { HallConfigViewComponent } from './admin-panel/hall-config-view/hall-config-view.component';
 import { TokenInterceptor } from './core/services/token.interceptor';
+import { SnackComponent } from './snack/snack.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TokenInterceptor } from './core/services/token.interceptor';
     AdminPanelComponent,
     AdminMenuComponent,
     AddMovieComponent,
-    HallConfigViewComponent
+    HallConfigViewComponent,
+    SnackComponent
   ],
   imports: [
     BrowserModule,

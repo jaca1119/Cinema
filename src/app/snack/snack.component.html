@@ -1,0 +1,21 @@
+<mat-card class="snack">
+  <mat-card-title>{{snack.name | titlecase}}</mat-card-title>
+  <img mat-card-sm-image [src]="snack.imageURL" [alt]="snack.name">
+  <p>Price: {{price}} zl</p>
+  <form [formGroup]="snackForm">
+    <mat-button-toggle-group formControlName="snackSize" (change)="setPriceForSize()">
+      <mat-button-toggle value="Small">Sm</mat-button-toggle>
+      <mat-button-toggle value="Medium">Md</mat-button-toggle>
+      <mat-button-toggle value="Large">Lg</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" min="0" max="5" formControlName="quantity">
+    </mat-form-field>
+  </form>
+
+  <mat-card-actions>
+    <button mat-button (click)="addSnack()">Add</button>
+  </mat-card-actions>
+</mat-card>
