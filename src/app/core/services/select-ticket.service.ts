@@ -3,75 +3,32 @@ import { MovieInfo } from '../../movie/movie.component';
 import { SelectedSeat, Ticket } from '../../tickets-view/tickets-view.component';
 import { AddSnack } from '../../snack/snack.component';
 
+interface Order {
+  movie: MovieInfo;
+  date: Date;
+  tickets: Ticket[];
+  seats: SelectedSeat[];
+  ticketStatus: boolean;
+  addedSnacks: AddSnack[];
+  hallName: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class SelectTicketService {
-  private movie: MovieInfo;
-  private date: Date;
-  private tickets: Ticket[];
-  private seats: SelectedSeat[];
-  private ticketStatus: boolean;
-  private addedSnacks: AddSnack[];
-  private hallName: string;
+
+  private _order: Order;
 
   constructor() {
   }
 
-  getMovie() {
-    return this.movie;
+  get order(): Order {
+    return this._order;
   }
 
-  setMovie(movie: MovieInfo) {
-    this.movie = movie;
-  }
-
-  getDate() {
-    return this.date;
-  }
-
-  setDate(date: Date) {
-    this.date = date;
-  }
-
-  getTickets() {
-    return this.tickets;
-  }
-
-  setTickets(tickets: Ticket[]) {
-    this.tickets = tickets;
-  }
-
-  getSeats() {
-    return this.seats;
-  }
-
-  getSnacks() {
-    return this.addedSnacks;
-  }
-
-  setSeats(selectedSeats: SelectedSeat[]) {
-    this.seats = selectedSeats;
-  }
-
-  getTicketStatus() {
-    return true;
-    return this.ticketStatus;
-  }
-
-  getHallName() {
-    return this.hallName;
-  }
-
-  setTicketStatus(ticketStatus: boolean) {
-    this.ticketStatus = ticketStatus;
-  }
-
-  setSnacks(addedSnacks: AddSnack[]) {
-    this.addedSnacks = addedSnacks;
-  }
-
-  setHallName(hallName: string) {
-    this.hallName = hallName;
+  set order(value: Order) {
+    this._order = value;
   }
 }

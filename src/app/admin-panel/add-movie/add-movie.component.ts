@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovieEndpointService } from 'src/app/core/services/movie-endpoint.service';
 import { Hall } from '../hall-config-view/hall-config-view.component';
 import { halls as Halls } from '../../../assets/halls';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface Screening {
@@ -32,7 +33,6 @@ export interface CreateMovieDTO {
 })
 export class AddMovieComponent implements OnInit {
 
-  today = new Date();
   addMovieForm: FormGroup;
   screenings: Screening[] = [];
 
@@ -41,20 +41,23 @@ export class AddMovieComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private movieEndpointService: MovieEndpointService
+    private movieEndpointService: MovieEndpointService,
+    private snackBar: MatSnackBar
   ) {
   }
 
   ngOnInit() {
     this.addMovieForm = this.formBuilder.group({
       title: ['', Validators.required],
-      posterUrl: ['', Validators.required],
+      posterUrl: [''],
       description: ['', Validators.required],
       duration: ['', Validators.required],
       category: ['', Validators.required],
       hall: [''],
       date: [new Date()]
     });
+
+    this.screenings = [];
 
     this.movieEndpointService.get('halls')
       .then((halls: Hall[]) => {
@@ -84,7 +87,17 @@ export class AddMovieComponent implements OnInit {
     this.movieEndpointService.createMovie('movies', createMovie)
       .then((resp) => {
         console.log(resp);
+        this.ngOnInit();
+        this.snackBar.open('Movie created!', 'Ok!', {
+          duration: 3000
+        });
+      }, reason => {
+        console.log(reason);
+        this.ngOnInit();
 
+        this.snackBar.open('Something went wrong!\n', 'Close', {
+          duration: 3000
+        });
       });
 
     console.log(createMovie);
@@ -95,14 +108,10 @@ export class AddMovieComponent implements OnInit {
   }
 
   addScreening(date: string, time: string, hall: string) {
-
-    const d = new Date(`${date} ${time}`);
     const screening: Screening = {
-      date: d,
+      date: new Date(`${date} ${time}`),
       hall: this.halls.find(h => h.hallName === hall)
     };
-
-    console.log(d);
 
     this.screenings.push(screening);
     this.isAddingScreening = false;

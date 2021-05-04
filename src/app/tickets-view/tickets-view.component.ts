@@ -120,12 +120,15 @@ export class TicketsViewComponent implements OnInit {
 
     console.log(ticketDTO);
 
-    this.selectTicketService.setMovie(this.selectedMovieInfo);
-    this.selectTicketService.setDate(this.selectedDate);
-    this.selectTicketService.setTickets(tickets);
-    this.selectTicketService.setSeats(this.selectedSeats);
-    this.selectTicketService.setSnacks(this.addedSnacks);
-    this.selectTicketService.setHallName(hallName);
+    this.selectTicketService.order = {
+      movie: this.selectedMovieInfo,
+      date: this.selectedDate,
+      tickets,
+      seats: this.selectedSeats,
+      addedSnacks: this.addedSnacks,
+      ticketStatus: true,
+      hallName
+    };
 
     this.router.navigate(['accepted']);
     return;
@@ -133,22 +136,27 @@ export class TicketsViewComponent implements OnInit {
 
     this.ticketEndpointService.acceptTicket('ticket', ticketDTO)
       .then((ticketStatus: boolean) => {
-        this.selectTicketService.setMovie(this.selectedMovieInfo);
-        this.selectTicketService.setDate(this.selectedDate);
-        this.selectTicketService.setTickets(tickets);
-        this.selectTicketService.setSeats(this.selectedSeats);
-        this.selectTicketService.setTicketStatus(ticketStatus);
-        this.selectTicketService.setSnacks(this.addedSnacks);
+        this.selectTicketService.order = {
+          movie: this.selectedMovieInfo,
+          date: this.selectedDate,
+          tickets,
+          seats: this.selectedSeats,
+          addedSnacks: this.addedSnacks,
+          ticketStatus,
+          hallName
+        };
 
         this.router.navigate(['accepted']);
       }, reason => {
-        this.selectTicketService.setMovie(this.selectedMovieInfo);
-        this.selectTicketService.setDate(this.selectedDate);
-        this.selectTicketService.setTickets(tickets);
-        this.selectTicketService.setSeats(this.selectedSeats);
-        this.selectTicketService.setTicketStatus(true);
-        this.selectTicketService.setSnacks(this.addedSnacks);
-        this.router.navigate(['accepted']);
+        this.selectTicketService.order = {
+          movie: this.selectedMovieInfo,
+          date: this.selectedDate,
+          tickets,
+          seats: this.selectedSeats,
+          addedSnacks: this.addedSnacks,
+          ticketStatus: false,
+          hallName
+        };
       });
   }
 

@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {MovieEndpointService} from 'src/app/core/services/movie-endpoint.service';
-import {Row, Seat} from 'src/app/movie/movie.component';
+import { Component, OnInit } from '@angular/core';
+import { MovieEndpointService } from 'src/app/core/services/movie-endpoint.service';
+import { Row, Seat } from 'src/app/movie/movie.component';
+import { halls as Halls } from '../../../assets/halls';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Hall {
   id: number;
@@ -21,7 +23,8 @@ export class HallConfigViewComponent implements OnInit {
   halls: Hall[];
 
   constructor(
-    private movieEndpointService: MovieEndpointService) {
+    private movieEndpointService: MovieEndpointService,
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -52,6 +55,8 @@ export class HallConfigViewComponent implements OnInit {
     this.movieEndpointService.get('halls')
       .then((halls: Hall[]) => {
         this.halls = halls;
+      }, reason => {
+        this.halls = Halls;
       });
   }
 
@@ -66,7 +71,6 @@ export class HallConfigViewComponent implements OnInit {
   }
 
   doSelectSeat($event: any, seat: Seat, row: number, column: number) {
-    console.log(seat);
     if (seat.status === 'Free') {
       seat.status = 'Excluded';
       $event.target.classList.remove('free');
@@ -84,6 +88,13 @@ export class HallConfigViewComponent implements OnInit {
     this.movieEndpointService.createHall('halls', this.createHall)
       .then((hall: any) => {
         this.ngOnInit();
+        this.snackBar.open('Hall created!', 'Ok!', {
+          duration: 3000
+        });
+      }, reason => {
+        this.snackBar.open('Something went wrong!', 'Close', {
+          duration: 3000
+        });
       });
   }
 
@@ -93,6 +104,13 @@ export class HallConfigViewComponent implements OnInit {
     this.movieEndpointService.updateHall('halls', this.selectedHall)
       .then((hall: any) => {
         this.ngOnInit();
+        this.snackBar.open('Hall updated!', 'Ok!', {
+          duration: 3000
+        });
+      }, reason => {
+        this.snackBar.open('Something went wrong!', 'Close', {
+          duration: 3000
+        });
       });
   }
 

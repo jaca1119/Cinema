@@ -22,13 +22,13 @@ export class AcceptViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movie = this.selectTicketService.getMovie();
-    this.date = this.selectTicketService.getDate();
-    this.tickets = this.selectTicketService.getTickets();
-    this.seats = this.selectTicketService.getSeats();
-    this.ticketStatus = this.selectTicketService.getTicketStatus();
-    this.snacks = this.selectTicketService.getSnacks();
-    this.hallName = this.selectTicketService.getHallName();
+    this.movie = this.selectTicketService.order.movie;
+    this.date = this.selectTicketService.order.date;
+    this.tickets = this.selectTicketService.order.tickets;
+    this.seats = this.selectTicketService.order.seats;
+    this.ticketStatus = this.selectTicketService.order.ticketStatus;
+    this.snacks = this.selectTicketService.order.addedSnacks;
+    this.hallName = this.selectTicketService.order.hallName;
   }
 
 }

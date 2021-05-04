@@ -23,10 +23,10 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
-        <select matNativeControl formControlName="category">
-          <option value="Action">Action</option>
-          <option value="Sci-fi">Sci-fi</option>
-        </select>
+        <mat-select formControlName="category">
+          <mat-option value="Action">Action</mat-option>
+          <mat-option value="SciFi">SciFi</mat-option>
+        </mat-select>
       </mat-form-field>
 
       <p>Screening time:</p>
@@ -59,12 +59,9 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Hall:</mat-label>
-          <select matNativeControl #hall>
-            <option *ngFor="let hall of halls; let i = index" [selected]="i === 0" [value]="hall.hallName">
-              {{hall.hallName}}</option>
-            <option value="Hall1">Hall: 1</option>
-            <option value="Hall2">Hall: 2</option>
-          </select>
+          <mat-select #hall>
+            <mat-option *ngFor="let hall of halls" [value]="hall.hallName">{{hall.hallName}}</mat-option>
+          </mat-select>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="button"
