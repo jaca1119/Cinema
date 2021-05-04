@@ -1,10 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Hall } from '../hall-config-view/hall-config-view.component';
-import { CreateMovieDTO, CreateScreeningDTO, Screening } from '../add-movie/add-movie.component';
+import { CreateScreeningDTO, Screening } from '../add-movie/add-movie.component';
 import { MovieEndpointService } from '../../core/services/movie-endpoint.service';
 import { Router } from '@angular/router';
 import { MovieInfo } from '../../movie/movie.component';
+import { halls as Halls } from '../../../assets/halls';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+export interface UpdateMovieDTO {
+  id: number;
+  title: string;
+  posterUrl: string;
+  category: string;
+  duration: number;
+  description: string;
+  screeningTimes: CreateScreeningDTO[];
+}
 
 @Component({
   selector: 'app-update-movie',
@@ -23,7 +35,8 @@ export class UpdateMovieComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private movieEndpointService: MovieEndpointService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.movie = router.getCurrentNavigation()?.extras?.state?.selectedMovie || {title: 'asd'};
     this.screenings = this.movie.screeningTimes.map(s => ({
@@ -47,6 +60,8 @@ export class UpdateMovieComponent implements OnInit {
     this.movieEndpointService.get('halls')
       .then((halls: Hall[]) => {
         this.halls = halls;
+      }, reason => {
+        this.halls = Halls;
       });
   }
 
@@ -55,7 +70,8 @@ export class UpdateMovieComponent implements OnInit {
       return;
     }
 
-    const createMovie: CreateMovieDTO = {
+    const updateMovie: UpdateMovieDTO = {
+      id: this.movie.id,
       title: this.updateMovieForm.controls.title.value,
       posterUrl: this.updateMovieForm.controls.posterUrl.value,
       description: this.updateMovieForm.controls.description.value,
@@ -67,13 +83,16 @@ export class UpdateMovieComponent implements OnInit {
       } as CreateScreeningDTO))
     };
 
-    this.movieEndpointService.createMovie('movies', createMovie)
+    this.movieEndpointService.updateMovie('movies', updateMovie)
       .then((resp) => {
         console.log(resp);
-
+        this.ngOnInit();
+        this.snackBar.open('Movie updated!', 'Ok!', {
+          duration: 3000,
+        });
       });
 
-    console.log(createMovie);
+    console.log(updateMovie);
   }
 
   openAddScreening() {

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {MovieInfo, Row, ScreeningTime} from '../movie/movie.component';
-import {MovieEndpointService} from '../core/services/movie-endpoint.service';
-import {Hall} from '../admin-panel/hall-config-view/hall-config-view.component';
+import { Component, OnInit } from '@angular/core';
+import { MovieInfo, Row, ScreeningTime } from '../movie/movie.component';
+import { MovieEndpointService } from '../core/services/movie-endpoint.service';
+import { Hall } from '../admin-panel/hall-config-view/hall-config-view.component';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
     rows: []
   };
   movieInfo: MovieInfo = {
+    id: 1,
     title: 'Loooooooooooooooong title',
     posterUrl: 'http://oliclinic.pl/wp-content/uploads/2016/10/orionthemes-placeholder-image.png',
     category: 'Action',

@@ -2,6 +2,7 @@ import { MovieInfo } from '../app/movie/movie.component';
 
 export const movies: MovieInfo[] = [
   {
+    id: 1,
     posterUrl: 'https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg',
     title: 'The Shawshank Redemption',
     description: 'Escape from prison',
@@ -15,9 +16,10 @@ export const movies: MovieInfo[] = [
           hallName: 'Uno',
           rows: null
         },
-        screening: '2021-05-04T17:56:19.1294017',
+        screening: '2021-05-05T10:08:40.0810015',
         rows: [
           {
+            id: 15,
             rowIndex: 0,
             seats: [
               {
@@ -38,7 +40,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 583,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 584,
@@ -48,17 +50,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 585,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 586,
                 columnIndex: 5,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 587,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 588,
@@ -68,7 +70,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 589,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 590,
@@ -78,26 +80,27 @@ export const movies: MovieInfo[] = [
               {
                 id: 591,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 592,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 593,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 753,
                 columnIndex: 13,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 35,
             rowIndex: 1,
             seats: [
               {
@@ -113,7 +116,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 569,
                 columnIndex: 10,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 570,
@@ -123,17 +126,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 571,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 572,
                 columnIndex: 7,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 573,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 574,
@@ -143,12 +146,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 575,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 576,
                 columnIndex: 3,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 577,
@@ -158,7 +161,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 578,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 579,
@@ -178,6 +181,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 36,
             rowIndex: 2,
             seats: [
               {
@@ -188,12 +192,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 597,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 613,
                 columnIndex: 14,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 614,
@@ -208,22 +212,22 @@ export const movies: MovieInfo[] = [
               {
                 id: 616,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 617,
                 columnIndex: 10,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 618,
                 columnIndex: 9,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 619,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 620,
@@ -233,7 +237,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 621,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 622,
@@ -243,7 +247,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 623,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 624,
@@ -253,32 +257,33 @@ export const movies: MovieInfo[] = [
               {
                 id: 625,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 37,
             rowIndex: 3,
             seats: [
               {
                 id: 598,
                 columnIndex: 14,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 599,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 600,
                 columnIndex: 12,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 601,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 602,
@@ -288,42 +293,42 @@ export const movies: MovieInfo[] = [
               {
                 id: 603,
                 columnIndex: 9,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 604,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 605,
                 columnIndex: 7,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 606,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 607,
                 columnIndex: 5,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 608,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 609,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 610,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 612,
@@ -333,27 +338,28 @@ export const movies: MovieInfo[] = [
               {
                 id: 626,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 38,
             rowIndex: 4,
             seats: [
               {
                 id: 521,
                 columnIndex: 14,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 522,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 523,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 524,
@@ -363,27 +369,27 @@ export const movies: MovieInfo[] = [
               {
                 id: 525,
                 columnIndex: 10,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 526,
                 columnIndex: 9,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 527,
                 columnIndex: 8,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 528,
                 columnIndex: 7,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 529,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 530,
@@ -393,7 +399,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 531,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 533,
@@ -403,12 +409,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 564,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 565,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 566,
@@ -418,6 +424,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 39,
             rowIndex: 5,
             seats: [
               {
@@ -428,42 +435,42 @@ export const movies: MovieInfo[] = [
               {
                 id: 507,
                 columnIndex: 13,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 508,
                 columnIndex: 12,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 509,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 510,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 511,
                 columnIndex: 9,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 512,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 513,
                 columnIndex: 7,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 514,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 515,
@@ -473,47 +480,48 @@ export const movies: MovieInfo[] = [
               {
                 id: 516,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 517,
                 columnIndex: 3,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 518,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 519,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 520,
                 columnIndex: 0,
-                status: 'Free'
+                status: 'Excluded'
               }
             ]
           },
           {
+            id: 40,
             rowIndex: 6,
             seats: [
               {
                 id: 505,
                 columnIndex: 0,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 532,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 534,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 535,
@@ -538,12 +546,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 556,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 557,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 558,
@@ -553,7 +561,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 559,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 560,
@@ -563,7 +571,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 561,
                 columnIndex: 6,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 562,
@@ -573,11 +581,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 563,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               }
             ]
           },
           {
+            id: 41,
             rowIndex: 7,
             seats: [
               {
@@ -588,27 +597,27 @@ export const movies: MovieInfo[] = [
               {
                 id: 539,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 540,
                 columnIndex: 12,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 541,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 542,
                 columnIndex: 10,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 543,
                 columnIndex: 9,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 544,
@@ -618,7 +627,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 545,
                 columnIndex: 7,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 546,
@@ -628,12 +637,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 547,
                 columnIndex: 5,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 548,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 549,
@@ -643,27 +652,28 @@ export const movies: MovieInfo[] = [
               {
                 id: 550,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 551,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 552,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 43,
             rowIndex: 8,
             seats: [
               {
                 id: 536,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 537,
@@ -673,12 +683,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 611,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 627,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 628,
@@ -703,41 +713,42 @@ export const movies: MovieInfo[] = [
               {
                 id: 713,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 714,
                 columnIndex: 11,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 715,
                 columnIndex: 10,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 716,
                 columnIndex: 9,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 717,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 718,
                 columnIndex: 7,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 719,
                 columnIndex: 6,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 44,
             rowIndex: 10,
             seats: [
               {
@@ -748,17 +759,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 694,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 695,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 720,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 721,
@@ -773,22 +784,22 @@ export const movies: MovieInfo[] = [
               {
                 id: 723,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 744,
                 columnIndex: 14,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 745,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 746,
                 columnIndex: 12,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 747,
@@ -808,22 +819,23 @@ export const movies: MovieInfo[] = [
               {
                 id: 750,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 751,
                 columnIndex: 7,
-                status: 'Free'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 45,
             rowIndex: 11,
             seats: [
               {
                 id: 729,
                 columnIndex: 14,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 730,
@@ -833,17 +845,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 731,
                 columnIndex: 12,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 732,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 733,
                 columnIndex: 10,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 734,
@@ -863,32 +875,32 @@ export const movies: MovieInfo[] = [
               {
                 id: 738,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 739,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 740,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 741,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 742,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 743,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 752,
@@ -898,22 +910,23 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 51,
             rowIndex: 9,
             seats: [
               {
                 id: 696,
                 columnIndex: 14,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 697,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 698,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 699,
@@ -923,17 +936,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 700,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 701,
                 columnIndex: 9,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 702,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 703,
@@ -943,7 +956,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 704,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 705,
@@ -953,12 +966,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 706,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 707,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 708,
@@ -986,15 +999,16 @@ export const movies: MovieInfo[] = [
           hallName: 'Dos',
           rows: null
         },
-        screening: '2021-05-04T20:06:19.1494017',
+        screening: '2021-05-05T12:18:40.0840015',
         rows: [
           {
+            id: 16,
             rowIndex: 9,
             seats: [
               {
                 id: 474,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 475,
@@ -1004,12 +1018,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 476,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 477,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 478,
@@ -1039,12 +1053,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 483,
                 columnIndex: 10,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 484,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 485,
@@ -1064,22 +1078,23 @@ export const movies: MovieInfo[] = [
               {
                 id: 502,
                 columnIndex: 5,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 31,
             rowIndex: 8,
             seats: [
               {
                 id: 396,
                 columnIndex: 0,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 397,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 398,
@@ -1089,12 +1104,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 399,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 400,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 401,
@@ -1104,12 +1119,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 402,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 403,
                 columnIndex: 7,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 404,
@@ -1129,17 +1144,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 439,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 440,
                 columnIndex: 12,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 441,
                 columnIndex: 13,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 473,
@@ -1149,12 +1164,13 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 32,
             rowIndex: 7,
             seats: [
               {
                 id: 381,
                 columnIndex: 0,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 382,
@@ -1164,42 +1180,42 @@ export const movies: MovieInfo[] = [
               {
                 id: 383,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 384,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 385,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 386,
                 columnIndex: 5,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 387,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 388,
                 columnIndex: 7,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 389,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 390,
                 columnIndex: 9,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 391,
@@ -1209,7 +1225,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 392,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 393,
@@ -1219,27 +1235,28 @@ export const movies: MovieInfo[] = [
               {
                 id: 394,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 395,
                 columnIndex: 14,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 33,
             rowIndex: 6,
             seats: [
               {
                 id: 380,
                 columnIndex: 14,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 406,
                 columnIndex: 13,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 407,
@@ -1249,12 +1266,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 408,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 409,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 428,
@@ -1269,17 +1286,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 430,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 431,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 432,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 433,
@@ -1294,32 +1311,33 @@ export const movies: MovieInfo[] = [
               {
                 id: 435,
                 columnIndex: 7,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 436,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 437,
                 columnIndex: 9,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 34,
             rowIndex: 5,
             seats: [
               {
                 id: 413,
                 columnIndex: 0,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 414,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 415,
@@ -1329,7 +1347,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 416,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 417,
@@ -1354,41 +1372,42 @@ export const movies: MovieInfo[] = [
               {
                 id: 421,
                 columnIndex: 8,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 422,
                 columnIndex: 9,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 424,
                 columnIndex: 10,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 425,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 426,
                 columnIndex: 13,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 427,
                 columnIndex: 14,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 438,
                 columnIndex: 11,
-                status: 'Excluded'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 46,
             rowIndex: 0,
             seats: [
               {
@@ -1409,7 +1428,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 654,
                 columnIndex: 11,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 655,
@@ -1419,27 +1438,27 @@ export const movies: MovieInfo[] = [
               {
                 id: 656,
                 columnIndex: 9,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 674,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 691,
                 columnIndex: 7,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 692,
                 columnIndex: 5,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 724,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 725,
@@ -1454,12 +1473,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 727,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 728,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 737,
@@ -1469,6 +1488,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 47,
             rowIndex: 1,
             seats: [
               {
@@ -1484,12 +1504,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 638,
                 columnIndex: 12,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 639,
                 columnIndex: 11,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 640,
@@ -1504,12 +1524,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 642,
                 columnIndex: 8,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 643,
                 columnIndex: 7,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 644,
@@ -1519,7 +1539,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 645,
                 columnIndex: 5,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 646,
@@ -1529,26 +1549,27 @@ export const movies: MovieInfo[] = [
               {
                 id: 647,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 648,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 649,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 650,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 48,
             rowIndex: 2,
             seats: [
               {
@@ -1559,17 +1580,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 631,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 632,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 633,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 634,
@@ -1579,7 +1600,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 635,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 657,
@@ -1589,7 +1610,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 658,
                 columnIndex: 7,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 659,
@@ -1599,17 +1620,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 660,
                 columnIndex: 9,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 684,
                 columnIndex: 14,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 685,
                 columnIndex: 13,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 686,
@@ -1619,7 +1640,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 687,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 688,
@@ -1629,12 +1650,13 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 49,
             rowIndex: 3,
             seats: [
               {
                 id: 669,
                 columnIndex: 14,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 670,
@@ -1654,7 +1676,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 673,
                 columnIndex: 10,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 675,
@@ -1664,32 +1686,32 @@ export const movies: MovieInfo[] = [
               {
                 id: 676,
                 columnIndex: 7,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 677,
                 columnIndex: 6,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 678,
                 columnIndex: 5,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 679,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 680,
                 columnIndex: 3,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 681,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 682,
@@ -1704,32 +1726,33 @@ export const movies: MovieInfo[] = [
               {
                 id: 689,
                 columnIndex: 8,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           },
           {
+            id: 50,
             rowIndex: 4,
             seats: [
               {
                 id: 410,
                 columnIndex: 12,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 411,
                 columnIndex: 13,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 412,
                 columnIndex: 14,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 486,
                 columnIndex: 11,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 503,
@@ -1739,17 +1762,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 504,
                 columnIndex: 8,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 661,
                 columnIndex: 7,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 662,
                 columnIndex: 6,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 663,
@@ -1759,32 +1782,32 @@ export const movies: MovieInfo[] = [
               {
                 id: 664,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 665,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 666,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 667,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 668,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 690,
                 columnIndex: 9,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           }
@@ -1793,6 +1816,7 @@ export const movies: MovieInfo[] = [
     ]
   },
   {
+    id: 2,
     posterUrl: 'https://fwcdn.pl/fpo/05/20/520/7403025.6.jpg',
     title: 'Star Wars 4',
     description: 'Star wars',
@@ -1802,19 +1826,20 @@ export const movies: MovieInfo[] = [
       {
         id: 3,
         hall: {
-          id: 2,
-          hallName: 'Dos',
+          id: 1,
+          hallName: 'Uno',
           rows: null
         },
-        screening: '2021-05-05T17:56:19.1494017',
+        screening: '2021-05-06T10:08:40.0840015',
         rows: [
           {
+            id: 17,
             rowIndex: 0,
             seats: [
               {
                 id: 488,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 489,
@@ -1824,7 +1849,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 490,
                 columnIndex: 2,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 491,
@@ -1834,11 +1859,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 492,
                 columnIndex: 4,
-                status: 'Taken'
+                status: 'Excluded'
               }
             ]
           },
           {
+            id: 18,
             rowIndex: 1,
             seats: [
               {
@@ -1849,7 +1875,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 494,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 495,
@@ -1864,17 +1890,18 @@ export const movies: MovieInfo[] = [
               {
                 id: 497,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 19,
             rowIndex: 2,
             seats: [
               {
                 id: 471,
                 columnIndex: 4,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 472,
@@ -1889,7 +1916,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 499,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 500,
@@ -1899,17 +1926,18 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 20,
             rowIndex: 3,
             seats: [
               {
                 id: 442,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 443,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 444,
@@ -1919,12 +1947,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 469,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 470,
                 columnIndex: 0,
-                status: 'Taken'
+                status: 'Free'
               }
             ]
           }
@@ -1933,13 +1961,14 @@ export const movies: MovieInfo[] = [
       {
         id: 4,
         hall: {
-          id: 2,
-          hallName: 'Dos',
+          id: 1,
+          hallName: 'Uno',
           rows: null
         },
-        screening: '2021-05-05T23:28:19.1494017',
+        screening: '2021-05-06T15:40:40.0840015',
         rows: [
           {
+            id: 21,
             rowIndex: 0,
             seats: [
               {
@@ -1950,17 +1979,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 446,
                 columnIndex: 1,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 447,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 448,
                 columnIndex: 3,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 449,
@@ -1970,22 +1999,23 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 22,
             rowIndex: 1,
             seats: [
               {
                 id: 450,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 451,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Excluded'
               },
               {
                 id: 452,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 453,
@@ -2000,6 +2030,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 23,
             rowIndex: 2,
             seats: [
               {
@@ -2010,7 +2041,7 @@ export const movies: MovieInfo[] = [
               {
                 id: 456,
                 columnIndex: 1,
-                status: 'Free'
+                status: 'Taken'
               },
               {
                 id: 457,
@@ -2020,22 +2051,23 @@ export const movies: MovieInfo[] = [
               {
                 id: 458,
                 columnIndex: 3,
-                status: 'Taken'
+                status: 'Excluded'
               },
               {
                 id: 459,
                 columnIndex: 4,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           },
           {
+            id: 24,
             rowIndex: 3,
             seats: [
               {
                 id: 460,
                 columnIndex: 0,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 461,
@@ -2045,12 +2077,12 @@ export const movies: MovieInfo[] = [
               {
                 id: 462,
                 columnIndex: 2,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 463,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               },
               {
                 id: 464,
@@ -2060,6 +2092,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 25,
             rowIndex: 4,
             seats: [
               {
@@ -2075,17 +2108,17 @@ export const movies: MovieInfo[] = [
               {
                 id: 466,
                 columnIndex: 1,
-                status: 'Excluded'
+                status: 'Free'
               },
               {
                 id: 467,
                 columnIndex: 2,
-                status: 'Taken'
+                status: 'Free'
               },
               {
                 id: 468,
                 columnIndex: 3,
-                status: 'Excluded'
+                status: 'Taken'
               }
             ]
           }
@@ -2094,6 +2127,7 @@ export const movies: MovieInfo[] = [
     ]
   },
   {
+    id: 3,
     posterUrl: 'https://fwcdn.pl/fpo/38/34/133834/7177044.6.jpg',
     title: 'Lost',
     description: 'Lost',
@@ -2103,13 +2137,14 @@ export const movies: MovieInfo[] = [
       {
         id: 5,
         hall: {
-          id: 1,
-          hallName: 'Uno',
+          id: 2,
+          hallName: 'Dos',
           rows: null
         },
-        screening: '2021-05-03T17:56:19.1494017',
+        screening: '2021-05-04T10:08:40.0850015',
         rows: [
           {
+            id: 26,
             rowIndex: 0,
             seats: [
               {
@@ -2205,6 +2240,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 27,
             rowIndex: 1,
             seats: [
               {
@@ -2300,6 +2336,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 28,
             rowIndex: 2,
             seats: [
               {
@@ -2395,6 +2432,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 29,
             rowIndex: 3,
             seats: [
               {
@@ -2490,6 +2528,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 30,
             rowIndex: 4,
             seats: [
               {
@@ -2585,6 +2624,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 42,
             rowIndex: 5,
             seats: [
               {
@@ -2680,6 +2720,7 @@ export const movies: MovieInfo[] = [
             ]
           },
           {
+            id: 52,
             rowIndex: 6,
             seats: [
               {
@@ -2779,3 +2820,4 @@ export const movies: MovieInfo[] = [
     ]
   }
 ];
+

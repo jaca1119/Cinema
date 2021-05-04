@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MovieEndpointService} from 'src/app/core/services/movie-endpoint.service';
-import {Hall} from '../hall-config-view/hall-config-view.component';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MovieEndpointService } from 'src/app/core/services/movie-endpoint.service';
+import { Hall } from '../hall-config-view/hall-config-view.component';
+import { halls as Halls } from '../../../assets/halls';
 
 
 export interface Screening {
@@ -58,6 +59,8 @@ export class AddMovieComponent implements OnInit {
     this.movieEndpointService.get('halls')
       .then((halls: Hall[]) => {
         this.halls = halls;
+      }, reason => {
+        this.halls = Halls;
       });
   }
 
@@ -99,9 +102,7 @@ export class AddMovieComponent implements OnInit {
       hall: this.halls.find(h => h.hallName === hall)
     };
 
-
     console.log(d);
-
 
     this.screenings.push(screening);
     this.isAddingScreening = false;

@@ -1,6 +1,6 @@
 import { Hall } from '../app/admin-panel/hall-config-view/hall-config-view.component';
 
-const halls: Hall[] = [
+export const halls: Hall[] = [
   {
     id: 1,
     hallName: 'Uno',

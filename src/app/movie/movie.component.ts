@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Hall} from '../admin-panel/hall-config-view/hall-config-view.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Hall } from '../admin-panel/hall-config-view/hall-config-view.component';
 
 export interface Seat {
   id: number;
@@ -16,11 +16,13 @@ export interface ScreeningTime {
 }
 
 export interface Row {
+  id?: number;
   rowIndex: number;
   seats: Seat[];
 }
 
 export interface MovieInfo {
+  id: number;
   title: string;
   posterUrl: string;
   category: string;
