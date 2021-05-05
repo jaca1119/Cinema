@@ -7,17 +7,17 @@ import { SelectTicketService } from '../core/services/select-ticket.service';
 import { AddSnack, Snack } from '../snack/snack.component';
 import { MovieEndpointService } from '../core/services/movie-endpoint.service';
 
-interface TicketDTO {
-  title: string;
+interface OrderDTO {
+  movieId: number;
   date: Date;
   tickets: Ticket[];
   selectedSeats: number[];
-  snacks: any[];
+  snacks: SnackDTO[];
 }
 
 export interface Ticket {
-  type: string;
-  value: number;
+  ticketType: string;
+  quantity: number;
 }
 
 export interface SelectedSeat {
@@ -102,39 +102,31 @@ export class TicketsViewComponent implements OnInit {
   }
 
   accept() {
-    const tickets: Ticket[] = [
-      {type: 'normal', value: this.firstFormGroup.get('normalCtrl').value},
-      {type: 'student', value: this.firstFormGroup.get('studentCtrl').value}
-    ];
+    const tickets: Ticket[] = [];
+    const normalTicketValue: number = parseInt(this.firstFormGroup.get('normalCtrl').value, 10);
+    const studentTicketValue: number = parseInt(this.firstFormGroup.get('studentCtrl').value, 10);
+
+    if (normalTicketValue > 0) {
+      tickets.push({ticketType: 'normal', quantity: normalTicketValue});
+    }
+    if (studentTicketValue > 0) {
+      tickets.push({ticketType: 'student', quantity: studentTicketValue});
+    }
 
     const hallName = this.selectedMovieInfo.screeningTimes.find(m =>
       new Date(m.screening).getTime() === this.selectedDate.getTime())?.hall?.hallName;
 
-    const ticketDTO: TicketDTO = {
-      title: this.selectedMovieInfo.title,
+    const orderDTO: OrderDTO = {
+      movieId: this.selectedMovieInfo.id,
       date: this.selectedDate,
       selectedSeats: this.selectedSeats.map(x => x.id),
       snacks: this.addedSnacks,
       tickets
     };
 
-    console.log(ticketDTO);
+    console.log(orderDTO);
 
-    this.selectTicketService.order = {
-      movie: this.selectedMovieInfo,
-      date: this.selectedDate,
-      tickets,
-      seats: this.selectedSeats,
-      addedSnacks: this.addedSnacks,
-      ticketStatus: true,
-      hallName
-    };
-
-    this.router.navigate(['accepted']);
-    return;
-    // TODO: Book selected seats before payment
-
-    this.ticketEndpointService.acceptTicket('ticket', ticketDTO)
+    this.ticketEndpointService.acceptTicket('ticket', orderDTO)
       .then((ticketStatus: boolean) => {
         this.selectTicketService.order = {
           movie: this.selectedMovieInfo,
@@ -147,16 +139,6 @@ export class TicketsViewComponent implements OnInit {
         };
 
         this.router.navigate(['accepted']);
-      }, reason => {
-        this.selectTicketService.order = {
-          movie: this.selectedMovieInfo,
-          date: this.selectedDate,
-          tickets,
-          seats: this.selectedSeats,
-          addedSnacks: this.addedSnacks,
-          ticketStatus: false,
-          hallName
-        };
       });
   }
 

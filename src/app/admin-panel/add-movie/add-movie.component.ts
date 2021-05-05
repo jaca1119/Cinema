@@ -79,28 +79,23 @@ export class AddMovieComponent implements OnInit {
       duration: Number(this.addMovieForm.controls.duration.value),
       category: this.addMovieForm.controls.category.value,
       screeningTimes: this.screenings.map((v) => ({
-        date: new Date(Date.UTC(v.date.getFullYear(), v.date.getMonth(), v.date.getDate(), v.date.getHours(), v.date.getMinutes())),
+        date: v.date,
         hallId: v.hall.id
       } as CreateScreeningDTO))
     };
 
     this.movieEndpointService.createMovie('movies', createMovie)
       .then((resp) => {
-        console.log(resp);
         this.ngOnInit();
         this.snackBar.open('Movie created!', 'Ok!', {
           duration: 3000
         });
       }, reason => {
-        console.log(reason);
         this.ngOnInit();
-
         this.snackBar.open('Something went wrong!\n', 'Close', {
           duration: 3000
         });
       });
-
-    console.log(createMovie);
   }
 
   openAddScreening() {
@@ -120,5 +115,4 @@ export class AddMovieComponent implements OnInit {
   removeScreening(index: number) {
     this.screenings.splice(index, 1);
   }
-
 }
