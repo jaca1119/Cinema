@@ -1,0 +1,76 @@
+.payment {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-popup {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-top: 10vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  overflow: auto;
+}
+
+.btn-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.payment-popup > .content-popup {
+  border: 1px solid blue;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: default;
+  background-color: cornsilk;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.bank {
+  border: 1px solid black;
+  width: 100px;
+  height: 120px;
+  margin: 5px;
+  cursor: pointer;
+
+  color: #2ed62e;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 30px;
+}
+
+.bank > .bank-logo {
+  width: 75px;
+  height: auto;
+}
+
+.bank.disabled {
+  background-color: rgb(94, 94, 94);
+  color: darkgrey;
+}
+
+.payment-header {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  font-weight: 400;
+
+  color: #2ed62e;
+  font-size: 1.5rem;
+  text-align: center;
+}

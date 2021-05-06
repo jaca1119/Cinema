@@ -3,7 +3,7 @@ import { MovieInfo } from '../../movie/movie.component';
 import { SelectedSeat, Ticket } from '../../tickets-view/tickets-view.component';
 import { AddSnack } from '../../snack/snack.component';
 
-interface Order {
+export interface Order {
   movie: MovieInfo;
   date: Date;
   tickets: Ticket[];

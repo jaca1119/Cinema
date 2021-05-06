@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API: 'https://localhost:5001'
+  API: 'https://localhost:5001',
+  PAYMENT_URL: 'https://affectionate-carson-6417c5.netlify.app'
 };
 
 /*

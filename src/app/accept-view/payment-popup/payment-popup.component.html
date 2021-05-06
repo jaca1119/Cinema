@@ -1,0 +1,29 @@
+<div class="payment-popup">
+  <div class="content-popup">
+    <button mat-raised-button class="btn-close" (click)="showClosePopup()">X</button>
+    <div *ngIf="isOptionsVisible">
+      <h4 class="payment-header">Choose your payment option:</h4>
+      <hr/>
+      <div class="options">
+        <div class="bank" (click)="onBankClick()">
+          <img src='../../../assets/bank-logo.png' class="bank-logo" alt="my-bank"/>
+          <div>My bank</div>
+        </div>
+
+        <div class="bank disabled">
+          <div>Avatar</div>
+          <span>Other bank</span>
+        </div>
+
+        <div class="bank disabled">
+          <div>Avatar</div>
+          <span>Some bank</span>
+        </div>
+      </div>
+    </div>
+
+    <iframe *ngIf="isPaymentVisible" #payment id="payment" (load)="sendPaymentData()" [src]="paymentUrl"
+            title="Secure payment" width="100%" height="720px"></iframe>
+
+  </div>
+</div>

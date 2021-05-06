@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectTicketService } from '../core/services/select-ticket.service';
-import { MovieInfo } from '../movie/movie.component';
-import { SelectedSeat, Ticket } from '../tickets-view/tickets-view.component';
-import { AddSnack } from '../snack/snack.component';
+import { Order, SelectTicketService } from '../core/services/select-ticket.service';
 
 @Component({
   selector: 'app-accept-view',
@@ -10,25 +7,37 @@ import { AddSnack } from '../snack/snack.component';
   styleUrls: ['./accept-view.component.scss']
 })
 export class AcceptViewComponent implements OnInit {
-  movie: MovieInfo;
-  date: Date;
-  tickets: Ticket[];
-  seats: SelectedSeat[];
-  ticketStatus: boolean;
-  snacks: AddSnack[];
-  hallName: string;
+
+  order: Order;
+  showPaymentPopup = false;
 
   constructor(private selectTicketService: SelectTicketService) {
   }
 
   ngOnInit(): void {
-    this.movie = this.selectTicketService.order.movie;
-    this.date = this.selectTicketService.order.date;
-    this.tickets = this.selectTicketService.order.tickets;
-    this.seats = this.selectTicketService.order.seats;
-    this.ticketStatus = this.selectTicketService.order.ticketStatus;
-    this.snacks = this.selectTicketService.order.addedSnacks;
-    this.hallName = this.selectTicketService.order.hallName;
+    this.order = this.selectTicketService.order;
+    if (this.order === undefined) {
+      this.order = {
+        ticketStatus: true,
+        hallName: 'asd',
+        addedSnacks: [],
+        seats: [],
+        tickets: [],
+        movie: {
+          id: 0,
+          screeningTimes: [],
+          category: 'asd',
+          duration: 0,
+          description: 'test',
+          posterUrl: 'test',
+          title: 'test'
+        },
+        date: new Date()
+      };
+    }
   }
 
+  showClosePopup() {
+    this.showPaymentPopup = !this.showPaymentPopup;
+  }
 }

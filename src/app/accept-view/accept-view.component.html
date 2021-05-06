@@ -1,47 +1,61 @@
 <div class="content">
 
-  <div *ngIf="ticketStatus; else elseBlock">
+  <div *ngIf="order.ticketStatus; else elseBlock">
     <mat-card>
       <h1 class="thanks">Thank you for choosing our cinema!</h1>
       <mat-card-header>
         <mat-card-title>
-          Selected movie: {{movie.title}}
+          Selected movie: {{order.movie.title}}
         </mat-card-title>
         <mat-card-subtitle>
-          Date: {{date | date:'EEEE, MMMM d, y, h:mm a'}}
+          Date: {{order.date | date:'EEEE, MMMM d, y, h:mm a'}}
         </mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <h2>Hall</h2>
         <div>
-          Hall name: {{hallName}}
+          Hall name: {{order.hallName}}
         </div>
+        <mat-divider></mat-divider>
+
         <h2>Tickets</h2>
-        <div *ngFor="let ticket of tickets">
+        <div *ngFor="let ticket of order.tickets">
           <div class="ticket" *ngIf="ticket.quantity != 0">
             <div>Ticket type: {{ticket.ticketType}}</div>
             <div>No. of tickets: {{ticket.quantity}}</div>
           </div>
         </div>
+        <mat-divider></mat-divider>
+
         <h2>Seats</h2>
-        <div class="seat" *ngFor="let seat of seats">
+        <div class="seat" *ngFor="let seat of order.seats">
           <div>Row: {{seat.row + 1}}, Column: {{seat.column + 1}}</div>
         </div>
+        <mat-divider></mat-divider>
 
         <h2>Snacks</h2>
-        <div *ngFor="let snack of snacks">
+        <div *ngFor="let snack of order.addedSnacks">
           {{snack.name | titlecase}}, size: {{snack.size}}, quantity: {{snack.quantity}}
         </div>
+        <mat-divider></mat-divider>
 
+        <div class="payment">
+
+          <button mat-raised-button (click)="showClosePopup()">Go to payment</button>
+
+          <app-payment-popup *ngIf="showPaymentPopup" (closeButtonClick)="showClosePopup()"></app-payment-popup>
+
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
+
   <ng-template #elseBlock>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          Sorry something went wrong with accepting tickets
+          Sorry something went wrong with accepting order
         </mat-card-title>
       </mat-card-header>
     </mat-card>

@@ -22,6 +22,7 @@ import { MovieConfigComponent } from './admin-panel/movie-config/movie-config.co
 import { MovieListConfigComponent } from './admin-panel/movie-config/movie-list-config/movie-list-config.component';
 import { MovieConfigViewComponent } from './admin-panel/movie-config/movie-list-config/movie-config-view/movie-config-view.component';
 import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.component';
+import { PaymentPopupComponent } from './accept-view/payment-popup/payment-popup.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.co
     MovieConfigComponent,
     MovieListConfigComponent,
     MovieConfigViewComponent,
-    UpdateMovieComponent
+    UpdateMovieComponent,
+    PaymentPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.co
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
