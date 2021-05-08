@@ -6,6 +6,7 @@ export interface AddSnack {
   name: string;
   size: string;
   quantity: number;
+  price: number;
 }
 
 export interface Snack {
@@ -47,7 +48,8 @@ export class SnackComponent implements OnInit {
         id: this.snack.id,
         name: this.snack.name,
         size: this.snackForm.controls.snackSize.value,
-        quantity: this.snackForm.controls.quantity.value
+        quantity: this.snackForm.controls.quantity.value,
+        price: this.calculatePrice()
       };
 
       this.snackAdded.emit(snack);
@@ -68,17 +70,6 @@ export class SnackComponent implements OnInit {
   }
 
   calculatePrice() {
-    switch (this.snackForm.controls.snackSize.value) {
-      case 'Small':
-        this.price = 10;
-        break;
-      case 'Medium':
-        this.price = 15;
-        break;
-      case 'Large':
-        this.price = 20;
-    }
-
-    this.price *= this.snackForm.controls.quantity.value;
+    return this.price * this.snackForm.controls.quantity.value;
   }
 }

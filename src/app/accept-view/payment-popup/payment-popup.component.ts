@@ -38,11 +38,10 @@ export class PaymentPopupComponent implements OnInit {
     if (this.paymentIframe !== undefined) {
       const payment = this.paymentIframe.nativeElement.contentWindow;
 
-      // TODO get order id
       payment.postMessage({
         from: 'cinema',
         amount: sessionStorage.getItem('amount'),
-        message: `order id: ${Math.random() * 10000}`,
+        message: `order id: ${sessionStorage.getItem('orderId')}`,
         parentURL: window.origin
       }, this.paymentUrl);
     }

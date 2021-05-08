@@ -127,19 +127,39 @@ export class TicketsViewComponent implements OnInit {
     console.log(orderDTO);
 
     this.ticketEndpointService.acceptTicket('ticket', orderDTO)
-      .then((ticketStatus: boolean) => {
+      .then((orderId: number) => {
         this.selectTicketService.order = {
           movie: this.selectedMovieInfo,
           date: this.selectedDate,
           tickets,
           seats: this.selectedSeats,
           addedSnacks: this.addedSnacks,
-          ticketStatus,
+          ticketStatus: orderId !== 0,
           hallName
         };
 
+        sessionStorage.setItem('amount', this.calculateAmount(tickets));
+        sessionStorage.setItem('orderId', orderId.toString());
+
         this.router.navigate(['accepted']);
       });
+  }
+
+  private calculateAmount(tickets: Ticket[]): string {
+    let sum = 0;
+    tickets.forEach((ticket: Ticket) => {
+      if (ticket.ticketType === 'normal') {
+        sum += (ticket.quantity * 20);
+      } else {
+        sum += (ticket.quantity * 15);
+      }
+    });
+
+    this.addedSnacks.forEach((snack: AddSnack) => {
+      sum += snack.price;
+    });
+
+    return sum.toString();
   }
 
   private canSelectSeat(seat: Seat) {
