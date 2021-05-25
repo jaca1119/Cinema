@@ -49,7 +49,7 @@ export class UpdateMovieComponent implements OnInit {
 
     this.updateMovieForm = this.formBuilder.group({
       title: [this.movie.title, Validators.required],
-      posterUrl: [this.movie.posterUrl, Validators.required],
+      posterUrl: [this.movie.posterUrl],
       description: [this.movie.description, Validators.required],
       duration: [this.movie.duration, Validators.required],
       category: [this.movie.category, Validators.required],
@@ -78,7 +78,7 @@ export class UpdateMovieComponent implements OnInit {
       duration: Number(this.updateMovieForm.controls.duration.value),
       category: this.updateMovieForm.controls.category.value,
       screeningTimes: this.screenings.map((v) => ({
-        date: new Date(Date.UTC(v.date.getFullYear(), v.date.getMonth(), v.date.getDate(), v.date.getHours(), v.date.getMinutes())),
+        date: v.date,
         hallId: v.hall.id
       } as CreateScreeningDTO))
     };
