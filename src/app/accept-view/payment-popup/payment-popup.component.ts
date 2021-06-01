@@ -38,8 +38,9 @@ export class PaymentPopupComponent implements OnInit {
     if (this.paymentIframe !== undefined) {
       const payment = this.paymentIframe.nativeElement.contentWindow;
 
+      console.log("Sending payment data");
       payment.postMessage({
-        from: 'cinema',
+        from: 'pizzeria',
         amount: sessionStorage.getItem('amount'),
         message: `order id: ${sessionStorage.getItem('orderId')}`,
         parentURL: window.origin
