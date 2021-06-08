@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-payment-popup',
@@ -12,12 +13,13 @@ export class PaymentPopupComponent implements OnInit {
   @Output() closeButtonClick = new EventEmitter();
   isOptionsVisible = true;
   isPaymentVisible = false;
-  paymentUrl: SafeUrl;
+  paymentUrl: SafeResourceUrl;
 
   @ViewChild('payment', {static: false}) paymentIframe: ElementRef;
 
   constructor(
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private snackBar: MatSnackBar
   ) {
     this.paymentUrl = sanitizer.bypassSecurityTrustResourceUrl(environment.PAYMENT_URL);
   }
@@ -36,38 +38,38 @@ export class PaymentPopupComponent implements OnInit {
 
   sendPaymentData() {
     if (this.paymentIframe !== undefined) {
+
       const payment = this.paymentIframe.nativeElement.contentWindow;
 
-      console.log("Sending payment data");
       payment.postMessage({
         from: 'pizzeria',
         amount: sessionStorage.getItem('amount'),
         message: `order id: ${sessionStorage.getItem('orderId')}`,
         parentURL: window.origin
-      }, this.paymentUrl);
+      }, environment.PAYMENT_URL);
+
     }
   }
 
   @HostListener('window:message', ['$event'])
   onPostMessage(event: MessageEvent) {
 
-    if (event.origin !== this.paymentUrl) {
+    if (event.origin !== environment.PAYMENT_URL) {
       return;
     }
 
     this.isPaymentVisible = false;
-    //
-    // if (event.data === 'success') {
-    //   fetch(`https://pizzeria-spring.herokuapp.com/order-pizza-cart/payment/${this.props.id}`, {
-    //     method: "PATCH"
-    //   })
-    //     .then(response => {
-    //       if (response.ok) {
-    //         this.props.setStatus("Payment accepted!");
-    //       }
-    //     });
-    //
-    //   this.setState({ isSuccess: true });
-    // }
+
+    this.showClosePopup();
+
+    if (event.data === 'success') {
+      this.snackBar.open('Payment accepted!', 'Ok!', {
+        duration: 10000
+      });
+    } else {
+      this.snackBar.open('Something went wrong with payment', 'Close', {
+        duration: 10000
+      });
+    }
   }
 }
