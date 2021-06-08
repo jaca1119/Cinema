@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, View
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-popup',
@@ -19,7 +20,8 @@ export class PaymentPopupComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.paymentUrl = sanitizer.bypassSecurityTrustResourceUrl(environment.PAYMENT_URL);
   }
@@ -66,6 +68,9 @@ export class PaymentPopupComponent implements OnInit {
       this.snackBar.open('Payment accepted!', 'Ok!', {
         duration: 10000
       });
+
+      this.router.navigate(['payment-accepted']);
+
     } else {
       this.snackBar.open('Something went wrong with payment', 'Close', {
         duration: 10000

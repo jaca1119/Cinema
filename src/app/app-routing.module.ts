@@ -11,6 +11,7 @@ import { AdminMenuComponent } from './admin-panel/admin-menu/admin-menu.componen
 import { HallConfigViewComponent } from './admin-panel/hall-config-view/hall-config-view.component';
 import { MovieConfigComponent } from './admin-panel/movie-config/movie-config.component';
 import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.component';
+import { PaymentAcceptedComponent } from './payment-accepted/payment-accepted.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'tickets', component: TicketsViewComponent},
   {path: 'accepted', component: AcceptViewComponent},
   {path: 'login', component: LoginViewComponent},
+  {path: 'payment-accepted', component: PaymentAcceptedComponent},
   {
     path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard], children: [
       {path: '', component: AdminMenuComponent},

@@ -10,6 +10,7 @@ export class AcceptViewComponent implements OnInit {
 
   order: Order;
   showPaymentPopup = false;
+  amount: number;
 
   constructor(private selectTicketService: SelectTicketService) {
   }
@@ -35,6 +36,8 @@ export class AcceptViewComponent implements OnInit {
         date: new Date()
       };
     }
+
+    this.amount = sessionStorage.getItem('amount') ? parseFloat(sessionStorage.getItem('amount')) : 0;
   }
 
   showClosePopup() {

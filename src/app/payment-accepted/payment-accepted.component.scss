@@ -1,0 +1,27 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellow;
+}
+
+.payment {
+  text-align: center;
+  color: green;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 320px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    width: 50%;
+  }
+}

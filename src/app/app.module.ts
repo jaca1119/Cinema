@@ -23,6 +23,7 @@ import { MovieListConfigComponent } from './admin-panel/movie-config/movie-list-
 import { MovieConfigViewComponent } from './admin-panel/movie-config/movie-list-config/movie-config-view/movie-config-view.component';
 import { UpdateMovieComponent } from './admin-panel/update-movie/update-movie.component';
 import { PaymentPopupComponent } from './accept-view/payment-popup/payment-popup.component';
+import { PaymentAcceptedComponent } from './payment-accepted/payment-accepted.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PaymentPopupComponent } from './accept-view/payment-popup/payment-popup
     MovieListConfigComponent,
     MovieConfigViewComponent,
     UpdateMovieComponent,
-    PaymentPopupComponent
+    PaymentPopupComponent,
+    PaymentAcceptedComponent
   ],
   imports: [
     BrowserModule,
